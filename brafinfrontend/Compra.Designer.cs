@@ -39,20 +39,22 @@
             this.compraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.lblAcao = new System.Windows.Forms.Label();
+            this.lblValorDaCompra = new System.Windows.Forms.Label();
+            this.lblData = new System.Windows.Forms.Label();
+            this.lblQuantidade = new System.Windows.Forms.Label();
+            this.cmbAcao = new System.Windows.Forms.ComboBox();
+            this.txtValorDaCompra = new System.Windows.Forms.TextBox();
+            this.txtData = new System.Windows.Forms.TextBox();
+            this.numQuantidade = new System.Windows.Forms.NumericUpDown();
+            this.lblTituloCompra = new System.Windows.Forms.Label();
+            this.cmdCadastro = new System.Windows.Forms.Button();
+            this.cmdCancelar = new System.Windows.Forms.Button();
+            this.cmdComprar = new System.Windows.Forms.Button();
+            this.txtValorDaAcao = new System.Windows.Forms.TextBox();
+            this.lblValorDaAcao = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantidade)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -67,7 +69,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 5, 0, 5);
-            this.menuStrip1.Size = new System.Drawing.Size(310, 38);
+            this.menuStrip1.Size = new System.Drawing.Size(337, 38);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -173,175 +175,197 @@
             this.sobreToolStripMenuItem.Text = "Sobre";
             this.sobreToolStripMenuItem.Click += new System.EventHandler(this.sobreToolStripMenuItem_Click);
             // 
-            // label1
+            // lblAcao
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(191)))), ((int)(((byte)(45)))));
-            this.label1.Location = new System.Drawing.Point(22, 115);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 28);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Ação:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lblAcao.AutoSize = true;
+            this.lblAcao.BackColor = System.Drawing.Color.Transparent;
+            this.lblAcao.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAcao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(191)))), ((int)(((byte)(45)))));
+            this.lblAcao.Location = new System.Drawing.Point(22, 115);
+            this.lblAcao.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAcao.Name = "lblAcao";
+            this.lblAcao.Size = new System.Drawing.Size(52, 28);
+            this.lblAcao.TabIndex = 1;
+            this.lblAcao.Text = "Ação:";
             // 
-            // label2
+            // lblValorDaCompra
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(191)))), ((int)(((byte)(45)))));
-            this.label2.Location = new System.Drawing.Point(4, 167);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 28);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Valor da Compra:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.lblValorDaCompra.AutoSize = true;
+            this.lblValorDaCompra.BackColor = System.Drawing.Color.Transparent;
+            this.lblValorDaCompra.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorDaCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(191)))), ((int)(((byte)(45)))));
+            this.lblValorDaCompra.Location = new System.Drawing.Point(4, 314);
+            this.lblValorDaCompra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblValorDaCompra.Name = "lblValorDaCompra";
+            this.lblValorDaCompra.Size = new System.Drawing.Size(138, 28);
+            this.lblValorDaCompra.TabIndex = 4;
+            this.lblValorDaCompra.Text = "Valor da Compra:";
             // 
-            // label3
+            // lblData
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(191)))), ((int)(((byte)(45)))));
-            this.label3.Location = new System.Drawing.Point(9, 216);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(133, 28);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Data da Compra:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.lblData.AutoSize = true;
+            this.lblData.BackColor = System.Drawing.Color.Transparent;
+            this.lblData.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(191)))), ((int)(((byte)(45)))));
+            this.lblData.Location = new System.Drawing.Point(9, 216);
+            this.lblData.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblData.Name = "lblData";
+            this.lblData.Size = new System.Drawing.Size(133, 28);
+            this.lblData.TabIndex = 6;
+            this.lblData.Text = "Data da Compra:";
             // 
-            // label4
+            // lblQuantidade
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(191)))), ((int)(((byte)(45)))));
-            this.label4.Location = new System.Drawing.Point(39, 262);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 28);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Quantidade:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.lblQuantidade.AutoSize = true;
+            this.lblQuantidade.BackColor = System.Drawing.Color.Transparent;
+            this.lblQuantidade.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuantidade.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(191)))), ((int)(((byte)(45)))));
+            this.lblQuantidade.Location = new System.Drawing.Point(39, 262);
+            this.lblQuantidade.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblQuantidade.Name = "lblQuantidade";
+            this.lblQuantidade.Size = new System.Drawing.Size(101, 28);
+            this.lblQuantidade.TabIndex = 8;
+            this.lblQuantidade.Text = "Quantidade:";
             // 
-            // comboBox1
+            // cmbAcao
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Tw Cen MT Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(81, 117);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(214, 30);
-            this.comboBox1.TabIndex = 29;
+            this.cmbAcao.Font = new System.Drawing.Font("Tw Cen MT Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbAcao.FormattingEnabled = true;
+            this.cmbAcao.Location = new System.Drawing.Point(81, 117);
+            this.cmbAcao.Name = "cmbAcao";
+            this.cmbAcao.Size = new System.Drawing.Size(214, 30);
+            this.cmbAcao.TabIndex = 29;
+            this.cmbAcao.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // textBox1
+            // txtValorDaCompra
             // 
-            this.textBox1.Font = new System.Drawing.Font("Tw Cen MT Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(144, 169);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 27);
-            this.textBox1.TabIndex = 30;
+            this.txtValorDaCompra.Font = new System.Drawing.Font("Tw Cen MT Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValorDaCompra.Location = new System.Drawing.Point(144, 316);
+            this.txtValorDaCompra.Multiline = true;
+            this.txtValorDaCompra.Name = "txtValorDaCompra";
+            this.txtValorDaCompra.ReadOnly = true;
+            this.txtValorDaCompra.Size = new System.Drawing.Size(150, 27);
+            this.txtValorDaCompra.TabIndex = 30;
             // 
-            // textBox3
+            // txtData
             // 
-            this.textBox3.Font = new System.Drawing.Font("Tw Cen MT Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(144, 218);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(150, 27);
-            this.textBox3.TabIndex = 31;
+            this.txtData.Font = new System.Drawing.Font("Tw Cen MT Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtData.Location = new System.Drawing.Point(144, 218);
+            this.txtData.Multiline = true;
+            this.txtData.Name = "txtData";
+            this.txtData.Size = new System.Drawing.Size(150, 27);
+            this.txtData.TabIndex = 31;
             // 
-            // numericUpDown1
+            // numQuantidade
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(144, 261);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(150, 33);
-            this.numericUpDown1.TabIndex = 36;
-            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.numQuantidade.Location = new System.Drawing.Point(144, 261);
+            this.numQuantidade.Name = "numQuantidade";
+            this.numQuantidade.Size = new System.Drawing.Size(150, 33);
+            this.numQuantidade.TabIndex = 36;
+            this.numQuantidade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numQuantidade.ValueChanged += new System.EventHandler(this.numQuantidade_ValueChanged);
             // 
-            // label5
+            // lblTituloCompra
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tw Cen MT Condensed", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(11, 50);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 41);
-            this.label5.TabIndex = 37;
-            this.label5.Text = "► COMPRA";
+            this.lblTituloCompra.AutoSize = true;
+            this.lblTituloCompra.Font = new System.Drawing.Font("Tw Cen MT Condensed", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloCompra.Location = new System.Drawing.Point(11, 50);
+            this.lblTituloCompra.Name = "lblTituloCompra";
+            this.lblTituloCompra.Size = new System.Drawing.Size(128, 41);
+            this.lblTituloCompra.TabIndex = 37;
+            this.lblTituloCompra.Text = "► COMPRA";
             // 
-            // button3
+            // cmdCadastro
             // 
-            this.button3.BackgroundImage = global::brafinfrontend.Properties.Resources.NOVOCADASTRO1;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(56, 316);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(204, 80);
-            this.button3.TabIndex = 35;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.cmdCadastro.BackgroundImage = global::brafinfrontend.Properties.Resources.NOVOCADASTRO1;
+            this.cmdCadastro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdCadastro.FlatAppearance.BorderSize = 0;
+            this.cmdCadastro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cmdCadastro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.cmdCadastro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdCadastro.Location = new System.Drawing.Point(70, 394);
+            this.cmdCadastro.Name = "cmdCadastro";
+            this.cmdCadastro.Size = new System.Drawing.Size(204, 80);
+            this.cmdCadastro.TabIndex = 35;
+            this.cmdCadastro.UseVisualStyleBackColor = false;
+            this.cmdCadastro.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // cmdCancelar
             // 
-            this.button2.BackgroundImage = global::brafinfrontend.Properties.Resources.CANCELARBT;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2.Location = new System.Drawing.Point(2, 407);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(121, 43);
-            this.button2.TabIndex = 14;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.cmdCancelar.BackgroundImage = global::brafinfrontend.Properties.Resources.CANCELARBT;
+            this.cmdCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdCancelar.FlatAppearance.BorderSize = 0;
+            this.cmdCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cmdCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.cmdCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdCancelar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cmdCancelar.Location = new System.Drawing.Point(16, 485);
+            this.cmdCancelar.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
+            this.cmdCancelar.Name = "cmdCancelar";
+            this.cmdCancelar.Size = new System.Drawing.Size(121, 43);
+            this.cmdCancelar.TabIndex = 14;
+            this.cmdCancelar.UseVisualStyleBackColor = true;
+            this.cmdCancelar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // cmdComprar
             // 
-            this.button1.BackgroundImage = global::brafinfrontend.Properties.Resources.COMPRARBT;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(187, 407);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 43);
-            this.button1.TabIndex = 13;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.cmdComprar.BackgroundImage = global::brafinfrontend.Properties.Resources.COMPRARBT;
+            this.cmdComprar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdComprar.FlatAppearance.BorderSize = 0;
+            this.cmdComprar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cmdComprar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.cmdComprar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdComprar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cmdComprar.Location = new System.Drawing.Point(201, 485);
+            this.cmdComprar.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
+            this.cmdComprar.Name = "cmdComprar";
+            this.cmdComprar.Size = new System.Drawing.Size(121, 43);
+            this.cmdComprar.TabIndex = 13;
+            this.cmdComprar.UseVisualStyleBackColor = true;
+            this.cmdComprar.Click += new System.EventHandler(this.cmdComprar_Click);
+            // 
+            // txtValorDaAcao
+            // 
+            this.txtValorDaAcao.Font = new System.Drawing.Font("Tw Cen MT Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValorDaAcao.Location = new System.Drawing.Point(144, 171);
+            this.txtValorDaAcao.Multiline = true;
+            this.txtValorDaAcao.Name = "txtValorDaAcao";
+            this.txtValorDaAcao.Size = new System.Drawing.Size(150, 27);
+            this.txtValorDaAcao.TabIndex = 39;
+            // 
+            // lblValorDaAcao
+            // 
+            this.lblValorDaAcao.AutoSize = true;
+            this.lblValorDaAcao.BackColor = System.Drawing.Color.Transparent;
+            this.lblValorDaAcao.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorDaAcao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(191)))), ((int)(((byte)(45)))));
+            this.lblValorDaAcao.Location = new System.Drawing.Point(20, 169);
+            this.lblValorDaAcao.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblValorDaAcao.Name = "lblValorDaAcao";
+            this.lblValorDaAcao.Size = new System.Drawing.Size(117, 28);
+            this.lblValorDaAcao.TabIndex = 38;
+            this.lblValorDaAcao.Text = "Valor da Ação:";
             // 
             // Compra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
-            this.ClientSize = new System.Drawing.Size(310, 470);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(337, 552);
+            this.Controls.Add(this.txtValorDaAcao);
+            this.Controls.Add(this.lblValorDaAcao);
+            this.Controls.Add(this.lblTituloCompra);
+            this.Controls.Add(this.numQuantidade);
+            this.Controls.Add(this.cmdCadastro);
+            this.Controls.Add(this.txtData);
+            this.Controls.Add(this.txtValorDaCompra);
+            this.Controls.Add(this.cmbAcao);
+            this.Controls.Add(this.cmdCancelar);
+            this.Controls.Add(this.cmdComprar);
+            this.Controls.Add(this.lblQuantidade);
+            this.Controls.Add(this.lblData);
+            this.Controls.Add(this.lblValorDaCompra);
+            this.Controls.Add(this.lblAcao);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Transparent;
@@ -354,7 +378,7 @@
             this.Load += new System.EventHandler(this.Compra_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantidade)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,23 +391,25 @@
         private System.Windows.Forms.ToolStripMenuItem estoqueToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lblAcao;
+        private System.Windows.Forms.Label lblValorDaCompra;
+        private System.Windows.Forms.Label lblData;
+        private System.Windows.Forms.Label lblQuantidade;
+        private System.Windows.Forms.Button cmdComprar;
+        private System.Windows.Forms.Button cmdCancelar;
         private System.Windows.Forms.ToolStripMenuItem venderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comprarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem compraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vendaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox cmbAcao;
+        private System.Windows.Forms.TextBox txtValorDaCompra;
+        private System.Windows.Forms.TextBox txtData;
+        private System.Windows.Forms.Button cmdCadastro;
         private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown numQuantidade;
+        private System.Windows.Forms.Label lblTituloCompra;
+        private System.Windows.Forms.TextBox txtValorDaAcao;
+        private System.Windows.Forms.Label lblValorDaAcao;
     }
 }

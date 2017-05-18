@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
+using Model;
+using Controller;
+
 namespace brafinfrontend
 {
     public partial class RelatorioCompra : Form
@@ -18,11 +21,22 @@ namespace brafinfrontend
         Thread th4;
         Thread th5;
         Thread th6;
+
+        ControleCompra ctrCompra = new ControleCompra();
+
         public RelatorioCompra()
         {
             InitializeComponent();
-        }
 
+        }
+        private void RelatorioCompra_Load(object sender, EventArgs e)
+        {
+#if (DEBUG)
+            txtDataFinal.Text = "01/01/2020";
+            txtDataInicial.Text = "01/01/1900";
+#endif
+        }
+#region Metodos do Menu Tool Strip
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -115,6 +129,35 @@ namespace brafinfrontend
         public void opennewform6(object obj)
         {
             Application.Run(new SobreBcs());
+        }
+#endregion
+        
+        private string Obterdata()
+        {
+            Point locatieCalender = new Point(150,150);
+            MonthCalendar calender = new MonthCalendar();
+            calender.Location = locatieCalender;
+            calender.Show();
+            calender.Visible = true;
+            calender.BringToFront();
+            calender.Parent = RelatorioCompra.ActiveForm;
+            this.Controls.Add(calender);
+            string date = calender.SelectionRange.Start.ToShortDateString();
+            DateTime dateValue = DateTime.Parse(date);
+
+            string dateForTextbox = dateValue.ToString("dd-MM-yyyy");
+            calender.LostFocus += new System.EventHandler(this.ObterdataDispose);
+            //calender.Hide();
+            return dateForTextbox;
+          }
+        private void ObterdataDispose(object sender, EventArgs e)
+        {
+            MessageBox.Show("Lost Focus");
+        }
+
+        private void cmdPesquisar_Click(object sender, EventArgs e)
+        {
+            ctrCompra.ListarCompras(txtDataInicial.Text, txtDataFinal.Text, 0, dataGridView1);
         }
     }
 }

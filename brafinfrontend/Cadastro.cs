@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
+using Controller;
+using Model;
+
+
 
 namespace brafinfrontend
 {
@@ -21,6 +25,8 @@ namespace brafinfrontend
         Thread th14;
         Thread th15;
         Thread th16;
+
+        ControleAcao ctrlAcao = new ControleAcao();
         public Cadastro()
         {
             InitializeComponent();
@@ -151,6 +157,52 @@ namespace brafinfrontend
         {
             Application.Run(new Estoque());
        
+        }
+
+        private void Cadastro_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            ControleAcao acao = new ControleAcao();
+            acao.NomeEmpresa = txtEmpresa.Text;
+            try
+            {
+               acao.Inserir(acao);
+                MessageBox.Show("Ação " + acao.CodigoAcao.ToString() + " cadastrada com sucesso!");
+                txtEmpresa.Clear();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+
+            //lblID.Text = acao.CodigoAcao.ToString();
+
+        }
+
+        private void lblID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cadastro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //if (e.KeyChar == (char)13) this.button1_Click_1(sender,e);
+            //if (e.KeyChar == (char)27) this.button2_Click(sender, e);
+        }
+
+        private void txtEmpresa_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void txtEmpresa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13) this.button1_Click_1(sender, e);
+            if (e.KeyChar == (char)27) txtEmpresa.Clear();
         }
     }
 }
