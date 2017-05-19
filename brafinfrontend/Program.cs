@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace brafinfrontend
 {
-    //Teste
+    //Teste2
     static class Program
     {
         /// <summary>
