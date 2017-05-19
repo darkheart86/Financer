@@ -7,39 +7,91 @@ namespace Model
 {
      public class ModeloEstoque
     {
+        #region Atributos   
         int _idEstoque;
         int _idAcao;
         int _quantidade;
         float _valorAcumulado;
         float _valorMedio;
         bool _inativo;
+        #endregion  
 
-        public int IdEstoque { get => _idEstoque; set => _idEstoque = value; }
-        public int IdAcao { get => _idAcao; set => _idAcao = value; }
-        public int Quantidade { get => _quantidade; set => _quantidade = value; }
-        public float ValorAcumulado { get => _valorAcumulado; set => _valorAcumulado = value; }
+        #region Propriedades
+        public int IdEstoque
+        {
+            get
+            {
+                return _idEstoque;
+            }
+
+            set
+            {
+                _idEstoque = value;
+            }
+        }
+        public int IdAcao
+        {
+            get
+            {
+                return _idAcao;
+            }
+
+            set
+            {
+                _idAcao = value;
+            }
+        }
+        public int Quantidade
+        {
+            get
+            {
+                return _quantidade;
+            }
+
+            set
+            {
+                _quantidade = value;
+            }
+        }
+        public float ValorAcumulado
+        {
+            get
+            {
+                return _valorAcumulado;
+            }
+
+            set
+            {
+                _valorAcumulado = value;
+            }
+        }
         public float ValorMedio
         {
             get
             {
-                if (_quantidade != 0)
-                {
-                    return _valorAcumulado  / _quantidade;
-                }
-                else
-                {
-                    return _valorAcumulado;
-                }
-
+                return _valorMedio;
             }
-            private set
+
+            set
             {
                 _valorMedio = value;
             }
         }
-        public bool Inativo { get => _inativo; set => _inativo = value; }
-     
+        public bool Inativo
+        {
+            get
+            {
+                return _inativo;
+            }
 
+            set
+            {
+                _inativo = value;
+            }
+        }
+        #endregion
+
+        #region Metodos
         public ModeloEstoque()
         {
             this.IdAcao = 0;
@@ -60,5 +112,6 @@ namespace Model
             this.ValorAcumulado = 0;
             this.ValorMedio = 0;
         }
+        #endregion
     }
 }
