@@ -5,7 +5,6 @@ using System.Windows.Forms;
 
 namespace brafinfrontend
 {
-    //Teste
     static class Program
     {
         /// <summary>
@@ -14,9 +13,12 @@ namespace brafinfrontend
         [STAThread]
         static void Main()
         {
+            //Comentario
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
+            
         }
     }
 }
