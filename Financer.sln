@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI_Test", "GUI_Test\GUI_Test.csproj", "{7755B99A-0F83-4AF6-B615-E3547D21CD63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "..\..\..\..\..\..\..\Downloads\Front 2\Front 2\WindowsFormsApp1\WindowsFormsApp1\GUI.csproj", "{473BA924-3409-4027-8493-49A6AC9CAB97}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "..\..\..\..\..\..\..\Downloads\Front 2\Front 2\WindowsFormsApp1\GUI\GUI.csproj", "{473BA924-3409-4027-8493-49A6AC9CAB97}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
