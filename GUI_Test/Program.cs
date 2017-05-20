@@ -16,7 +16,7 @@ namespace GUI_Test
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new frmMain());
-            Application.Run(new frmPrincipal());
+            Application.Run(new frmMsgBox());
         }
     }
 }

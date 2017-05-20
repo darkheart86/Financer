@@ -110,14 +110,14 @@
             // mnuComprar
             // 
             this.mnuComprar.Name = "mnuComprar";
-            this.mnuComprar.Size = new System.Drawing.Size(152, 22);
+            this.mnuComprar.Size = new System.Drawing.Size(121, 22);
             this.mnuComprar.Text = "&Comprar";
             this.mnuComprar.Click += new System.EventHandler(this.mnuComprar_Click);
             // 
             // venderToolStripMenuItem
             // 
             this.venderToolStripMenuItem.Name = "venderToolStripMenuItem";
-            this.venderToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.venderToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.venderToolStripMenuItem.Text = "&Vender";
             // 
             // relatóriosToolStripMenuItem
@@ -172,6 +172,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.mnuPrincipal;
             this.Name = "frmPrincipal";
+            this.Opacity = 0.99D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Financer";
             this.mnuPrincipal.ResumeLayout(false);
