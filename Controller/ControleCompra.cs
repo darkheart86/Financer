@@ -51,7 +51,7 @@ namespace Controller
                 compra.CodigoCompra = numLinhaDoRegistro;
                 conexao.Desconectar();
 
-                Estoque.Decrementar(compra);
+                Estoque.Incrementar(compra);
             }
         }
         public void Inserir()
