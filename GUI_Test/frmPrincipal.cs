@@ -6,13 +6,59 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace GUI_Test
 {
     public partial class frmPrincipal : Form
     {
+        #region Custom Button
+        public partial class CustomBorderForm : Form
+        {
+            const int WM_NCPAINT = 0x85;
+
+            [DllImport("user32.dll", SetLastError = true)]
+            public static extern IntPtr GetWindowDC(IntPtr hwnd);
+
+            [DllImport("user32.dll", SetLastError = true)]
+            public static extern int ReleaseDC(IntPtr hwnd, IntPtr hdc);
+
+            [DllImport("user32.dll", SetLastError = true)]
+            public static extern void DisableProcessWindowsGhosting();
+
+            [DllImport("UxTheme.dll", SetLastError = true, CharSet = CharSet.Unicode)]
+            public static extern IntPtr SetWindowTheme(IntPtr hwnd, string pszSubAppName, string pszSubIdList);
+
+            protected override void OnHandleCreated(EventArgs e)
+            {
+                SetWindowTheme(this.Handle, "", "");
+                base.OnHandleCreated(e);
+            }
+
+            protected override void WndProc(ref Message m)
+            {
+                base.WndProc(ref m);
+
+                switch (m.Msg)
+                {
+                    case WM_NCPAINT:
+                        {
+                            IntPtr hdc = GetWindowDC(m.HWnd);
+                            using (Graphics g = Graphics.FromHdc(hdc))
+                            {
+                                g.FillEllipse(Brushes.Red, new Rectangle((Width - 20) / 2, 8, 20, 20));
+                            }
+                            int r = ReleaseDC(m.HWnd, hdc);
+                        }
+                        break;
+                }
+            }
+        }
+        #endregion
+
         public frmPrincipal()
         {
+            //DisableProcessWindowsGhosting();
             InitializeComponent();
         }
 
@@ -80,6 +126,68 @@ namespace GUI_Test
                     wfrmComprar.MdiParent = this;
                     //wAtualizaAcao.WindowState = FormWindowState.Maximized;
                     wfrmComprar.Show();
+                }
+            }
+            catch { }
+        }
+
+        private void sobreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Application.OpenForms["frmMsgBox"] == null) // Previne que crie mais de 1 instancia da mesma janela
+                {
+                    frmMsgBox wSobre = new frmMsgBox(); //Cria novo objeto winConsultaAcoes baseado no frmConsultaAcoes
+                    wSobre.MdiParent = this;
+                    //wAtualizaAcao.WindowState = FormWindowState.Maximized;
+                    wSobre.Show();
+                }
+            }
+            catch { }
+        }
+
+        private void mnuEstoque_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Application.OpenForms["frmRelEstoque"] == null) // Previne que crie mais de 1 instancia da mesma janela
+                {
+                    frmRelEstoque wRelEstoque = new frmRelEstoque(); //Cria novo objeto winConsultaAcoes baseado no frmConsultaAcoes
+                    wRelEstoque.MdiParent = this;
+                    //wAtualizaAcao.WindowState = FormWindowState.Maximized;
+                    wRelEstoque.Show();
+                }
+            }
+            catch { }
+        }
+
+        private void cmnuCascata_Click(object sender, EventArgs e)
+        {
+                           this.LayoutMdi(System.Windows.Forms.MdiLayout.Cascade);
+           
+        }
+        private void cmnuMinimizarTodas_Click(object sender, EventArgs e)
+        {
+            if (this.ParentForm != null)
+            {
+                foreach (Form childForm in this.ParentForm.MdiChildren)
+                {
+                    childForm.WindowState = FormWindowState.Minimized;
+                }
+
+            }
+        }
+
+        private void mnuVender_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Application.OpenForms["frmVender"] == null) // Previne que crie mais de 1 instancia da mesma janela
+                {
+                    frmVender wVender = new frmVender(); //Cria novo objeto winConsultaAcoes baseado no frmConsultaAcoes
+                    wVender.MdiParent = this;
+                    //wAtualizaAcao.WindowState = FormWindowState.Maximized;
+                    wVender.Show();
                 }
             }
             catch { }

@@ -68,7 +68,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMsgBox";
-            this.Opacity = 0.85D;
+            this.Opacity = 0.8D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mensagem";
             this.Load += new System.EventHandler(this.frmMsgBox_Load);

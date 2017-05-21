@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,6 +60,12 @@
     <Compile Include="frmCadastrarAcao.Designer.cs">
       <DependentUpon>frmCadastrarAcao.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVender.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVender.Designer.cs">
+      <DependentUpon>frmVender.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmComprar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +77,12 @@
     </Compile>
     <Compile Include="frmMsgBox.Designer.cs">
       <DependentUpon>frmMsgBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRelEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRelEstoque.Designer.cs">
+      <DependentUpon>frmRelEstoque.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRelCompras.cs">
       <SubType>Form</SubType>
@@ -97,11 +110,17 @@
     <EmbeddedResource Include="frmCadastrarAcao.resx">
       <DependentUpon>frmCadastrarAcao.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmVender.resx">
+      <DependentUpon>frmVender.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmComprar.resx">
       <DependentUpon>frmComprar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMsgBox.resx">
       <DependentUpon>frmMsgBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRelEstoque.resx">
+      <DependentUpon>frmRelEstoque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRelCompras.resx">
       <DependentUpon>frmRelCompras.cs</DependentUpon>
@@ -147,6 +166,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Title_top_middle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

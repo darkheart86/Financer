@@ -11,14 +11,14 @@ using Controller;
 
 namespace GUI_Test
 {
-    public partial class frmComprar : Form
+    public partial class frmVender : Form
     {
         ControleAcao ctrAcao = new ControleAcao();
         ControleCompra ctrCompra = new ControleCompra();
         ModeloCompra objCompra = new ModeloCompra();
         ModeloEstoque estoque = new ModeloEstoque();
 
-        public frmComprar()
+        public frmVender()
         {
             InitializeComponent();
         }
@@ -111,7 +111,7 @@ namespace GUI_Test
                 acao = 0;
             }
 
-            _vcompra = float.TryParse(txtValorDaCompra.Text, out vcompra);
+            _vcompra = float.TryParse(txtBruto.Text, out vcompra);
             _qte = Int32.TryParse(numQuantidade.Value.ToString(), out qte);
 
             if (_acao && _vcompra && _qte)
@@ -147,11 +147,11 @@ namespace GUI_Test
             qte = Int32.TryParse(numQuantidade.Value.ToString(), out quantidade);
             if (valor && qte)
             {
-                this.txtValorDaCompra.Text = (valorAcao * quantidade).ToString();
+                this.txtBruto.Text = (valorAcao * quantidade).ToString();
             }
             else
             {
-                this.txtValorDaCompra.Text = "0";
+                this.txtBruto.Text = "0";
             }
 
         }
@@ -167,8 +167,12 @@ namespace GUI_Test
 
 
 
+
         #endregion
 
-      
+        private void txtIR_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

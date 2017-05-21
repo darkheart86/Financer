@@ -186,6 +186,38 @@ namespace Controller
         //    }
         ////}
 
+        public DataSet Listar()
+        {
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataSet dt = new DataSet();
+            string strCmd = "SELECT A.ACAO AS 'Ação', B.EMPRESA AS 'Empresa', A.QUANTIDADE AS 'Qtde', A.VALOR_ACUMULADO AS 'Valor total' FROM ESTOQUE A JOIN ACOES B ON A.ACAO = B.ID_ACAO";
+            
+
+            //if (Validacao.validarData(dataInicial) == true && Validacao.validarData(dataFinal) == true)
+            //{
+                comando.Parameters.Clear();
+                comando.CommandText = strCmd;
+                //comando.Parameters.AddWithValue("@codAcao", codigoDaAcao);
+                //comando.Parameters.AddWithValue("@dataInicial", dataInicial);
+                //comando.Parameters.AddWithValue("@dataFinal", dataFinal);
+                da.SelectCommand = comando;
+                da.Fill(dt);
+                return dt;
+            //}
+            //else
+            //{
+            //    return null;
+            //}
+
+
+        }
+        public void Listar(DataGridView obj)
+        {
+            DataSet ds = Listar();
+
+            obj.DataSource = ds;
+            obj.DataMember = ds.Tables[0].TableName;
+        }
         private ModeloEstoque ConverterCompra(ModeloCompra obj)
         {
             ModeloEstoque opEstoque = new ModeloEstoque();
