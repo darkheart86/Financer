@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModeloAcao.cs" />
+    <Compile Include="ModeloVenda.cs" />
     <Compile Include="ModeloCompra.cs" />
     <Compile Include="ModeloConexao.cs" />
     <Compile Include="ModeloEstoque.cs" />

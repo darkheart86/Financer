@@ -92,6 +92,12 @@
     <Compile Include="FormCriadores.Designer.cs">
       <DependentUpon>FormCriadores.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDuvidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDuvidas.Designer.cs">
+      <DependentUpon>FormDuvidas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,24 @@
     </Compile>
     <Compile Include="FormRelatorioCompra.Designer.cs">
       <DependentUpon>FormRelatorioCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRelatorioEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRelatorioEstoque.Designer.cs">
+      <DependentUpon>FormRelatorioEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRelatorioVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRelatorioVenda.Designer.cs">
+      <DependentUpon>FormRelatorioVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSobre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSobre.Designer.cs">
+      <DependentUpon>FormSobre.cs</DependentUpon>
     </Compile>
     <Compile Include="FormVender.cs">
       <SubType>Form</SubType>
@@ -138,6 +162,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRelatorioCompra.resx">
       <DependentUpon>FormRelatorioCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRelatorioEstoque.resx">
+      <DependentUpon>FormRelatorioEstoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRelatorioVenda.resx">
+      <DependentUpon>FormRelatorioVenda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormVender.resx">
       <DependentUpon>FormVender.cs</DependentUpon>

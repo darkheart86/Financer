@@ -27,16 +27,12 @@ namespace Controller
         {
            // msg(Buscar(obj.IdAcao).IdAcao.ToString());
             if (Buscar(obj.IdAcao) != null)
-            {
-                msg("Incrementa");
+            {                
                 Atualizar(obj);
             }
             else
             {
-
-                msg("Cria novo");
                 Inserir(obj);
-
             }
 
         }
@@ -45,8 +41,11 @@ namespace Controller
           
             Incrementar(this.ConverterCompra(obj));
         }
-        //public void Incrementar(ModeloVenda obj)
-        //{ }
+        public void Incrementar(ModeloVenda obj)
+        {
+            //Essa função seria utilizada para estorno
+            Incrementar(this.ConverterVenda(obj));
+        }
 
         public void Decrementar(ModeloEstoque obj)
         {
@@ -68,7 +67,7 @@ namespace Controller
 
         }
         public void Decrementar(ModeloCompra obj)
-        {
+        {   //Essa função seria utilizada para estorno
             if (Buscar(obj.CodigoAcao) != null)
             {
                 Decrementar(this.ConverterCompra(obj));
@@ -78,16 +77,40 @@ namespace Controller
                 msg("Não existe registro de estoque para a acao");
             }
         }
-        //public void Decrementar(ModeloVenda obj)
-        //{ }
+        public void Decrementar(ModeloVenda obj)
+        {
+            if (Buscar(obj.CodigoAcao) != null)
+            {
+                Decrementar(this.ConverterVenda(obj));
+            }
+            else
+            {
+                msg("Não existe registro de estoque para a acao");
+            }
+        }
 
         public int Quantidade(int codigo)
         {
-            ModeloEstoque obj = new ModeloEstoque();
+            if (codigo <= 0) return 0;
+            ModeloEstoque obj = Buscar(codigo);
 
             if (obj != null)
             {
                 return obj.Quantidade;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        public float ValorMedio(int codigo)
+        {
+            if (codigo <= 0) return 0;
+            ModeloEstoque obj = Buscar(codigo);
+
+            if (obj != null)
+            {
+                return obj.ValorAcumulado / obj.Quantidade;
             }
             else
             {
@@ -190,24 +213,14 @@ namespace Controller
         {
             SqlDataAdapter da = new SqlDataAdapter();
             DataSet dt = new DataSet();
-            string strCmd = "SELECT A.ACAO AS 'Ação', B.EMPRESA AS 'Empresa', A.QUANTIDADE AS 'Qtde', A.VALOR_ACUMULADO AS 'Valor total' FROM ESTOQUE A JOIN ACOES B ON A.ACAO = B.ID_ACAO";
-            
+            string strCmd = "SELECT A.ACAO AS 'Ação', B.EMPRESA AS 'Empresa', A.QUANTIDADE AS 'Qtde', A.VALOR_ACUMULADO AS 'Total' FROM ESTOQUE A JOIN ACOES B ON A.ACAO = B.ID_ACAO";
 
-            //if (Validacao.validarData(dataInicial) == true && Validacao.validarData(dataFinal) == true)
-            //{
                 comando.Parameters.Clear();
                 comando.CommandText = strCmd;
-                //comando.Parameters.AddWithValue("@codAcao", codigoDaAcao);
-                //comando.Parameters.AddWithValue("@dataInicial", dataInicial);
-                //comando.Parameters.AddWithValue("@dataFinal", dataFinal);
                 da.SelectCommand = comando;
                 da.Fill(dt);
                 return dt;
-            //}
-            //else
-            //{
-            //    return null;
-            //}
+ 
 
 
         }
@@ -215,8 +228,17 @@ namespace Controller
         {
             DataSet ds = Listar();
 
+            float precoTotal = float.Parse(ds.Tables[0].Compute("Sum(Total)", "").ToString());
+            int qtdeTotal = int.Parse(ds.Tables[0].Compute("Sum(Qtde)", "").ToString());
+            EstilosDGView Estilos = new EstilosDGView();
+
+            ds.Tables[0].Rows.Add(null, "Total", qtdeTotal, precoTotal);
+
             obj.DataSource = ds;
             obj.DataMember = ds.Tables[0].TableName;
+            //MessageBox.Show(precoTotal.ToString());
+            obj.Rows[obj.Rows.Count - 1].DefaultCellStyle = Estilos.LinhaFinal;
+  
         }
         private ModeloEstoque ConverterCompra(ModeloCompra obj)
         {
@@ -229,23 +251,22 @@ namespace Controller
 
             return opEstoque;
         }
+        private ModeloEstoque ConverterVenda(ModeloVenda obj)
+        {
+            ModeloEstoque opEstoque = new ModeloEstoque();
 
-        //private ModeloEstoque ConverterVenda(ModeloVenda obj)
-        //{
-        //    ModeloEstoque opEstoque = new ModeloEstoque();
+            opEstoque.IdAcao = obj.CodigoAcao;
+            opEstoque.Quantidade = obj.Quantidade;
+            opEstoque.ValorAcumulado = obj.ValorVendaLiquida;
+            opEstoque.Inativo = obj.Inativo;
 
-        //    opEstoque.IdAcao = obj.CodigoAcao;
-        //    opEstoque.Quantidade = obj.Quantidade;
-        //    opEstoque.ValorAcumulado = obj.ValorCompra;
-        //    opEstoque.Inativo = obj.Inativo;
-
-        //    return opEstoque;
-        //}
+            return opEstoque;
+        }
 
         private void msg(string msg)
         {
 #if (DEBUG)
-            MessageBox.Show(msg);
+            //MessageBox.Show(msg);
 #endif
         }
 

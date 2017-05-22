@@ -135,44 +135,69 @@ namespace GUI
         private void imprimirToolStripButton_Click(object sender, EventArgs e)
         {
 
-            if (MessageBox.Show("Deseja fechar o form atual?", "Fechar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes)
-            {
+          //  if (MessageBox.Show("Deseja fechar o form atual?", "Fechar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes)
+           // {
                 FecharFormulariosFilhos();
                 FormVender fvender = new FormVender();
                 fvender.MdiParent = this;
                 fvender.Show();
                 pictureFundo.Visible = false;
                 pictureLogo.Visible = false;
-            }
-            else
-            {
+           // }
+          //  else
+           // {
 
-            }
+           // }
 
             
         }
 
+        
+
+        private void comprasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           // if (MessageBox.Show("Deseja fechar o form atual?", "Fechar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes)
+           // {
+                FecharFormulariosFilhos();
+                FormRelatorioCompra frelatoriocompra = new FormRelatorioCompra();
+                frelatoriocompra.MdiParent = this;
+                frelatoriocompra.Show();
+                pictureFundo.Visible = false;
+                pictureLogo.Visible = false;
+           // }
+          //  else
+          //  {
+
+          //  }
+        }
+
+        private void vendasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FecharFormulariosFilhos();
+            FormRelatorioVenda frelatoriovenda = new FormRelatorioVenda();
+            frelatoriovenda.MdiParent = this;
+            frelatoriovenda.Show();
+            pictureFundo.Visible = false;
+            pictureLogo.Visible = false;
+        }
+
+        private void estoqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FecharFormulariosFilhos();
+            FormRelatorioEstoque frelatorioestoque = new FormRelatorioEstoque();
+            frelatorioestoque.MdiParent = this;
+            frelatorioestoque.Show();
+            pictureFundo.Visible = false;
+            pictureLogo.Visible = false;
+        }
+
+        private void notaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("notepad.exe");
+        }
         private void calculadoraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("calc.exe");
         }
-
-        private void comprasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Deseja fechar o form atual?", "Fechar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes)
-            {
-                FecharFormulariosFilhos();
-                FormRelatorioCompra frelatorio = new FormRelatorioCompra();
-                frelatorio.MdiParent = this;
-                frelatorio.Show();
-                pictureFundo.Visible = false;
-                pictureLogo.Visible = false;
-            }
-            else
-            {
-
-            }
-        }
-        
     }
 }

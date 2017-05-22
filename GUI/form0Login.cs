@@ -11,15 +11,15 @@ using System.Data.SqlClient;
 
 namespace GUI
 {
-    
+
     public partial class form0Login : Form
     {
-        
+
         public form0Login()
         {
             InitializeComponent();
 
-            
+
 
 
             // Set no .text
@@ -29,13 +29,17 @@ namespace GUI
             // senha com 14 caracters
             textBox2.MaxLength = 14;
         }
-
+        private void form0Login_Load_1(object sender, EventArgs e)
+        {
+            textBox1.Focus();
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            if (textBox1.Text == ("admin")){
-                
+
+            if (textBox1.Text == ("admin"))
+            {
+
                 if (textBox2.Text == ("admin"))
                 {
                     // form principal aparece e o de login some
@@ -47,20 +51,35 @@ namespace GUI
                 {
                     MessageBox.Show("A senha esta incorreta");
                 }
-               
+
             }
             else
             {
                 MessageBox.Show("O usuário esta incorreto");
             }
 
-            
+
 
         }
 
-        private void form0Login_Load_1(object sender, EventArgs e)
-        {
+        
 
+        
+
+        private void textBox2_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                this.btnLogar.PerformClick();
+            }
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                this.btnLogar.PerformClick();
+            }
         }
     }
 }

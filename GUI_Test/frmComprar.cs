@@ -25,6 +25,7 @@ namespace GUI_Test
         private void frmComprar_Load(object sender, EventArgs e)
         {
             AtualizaForm();
+            
         }
 
         #region Eventos do formulário
@@ -166,9 +167,24 @@ namespace GUI_Test
 
 
 
-
         #endregion
 
-      
+        private void cmdCadastro_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (Application.OpenForms["frmCadastrarAcao"] == null) // Previne que crie mais de 1 instancia da mesma janela
+                {
+                    frmCadastrarAcao wCadastrarAcao = new frmCadastrarAcao(); //Cria novo objeto winConsultaAcoes baseado no frmConsultaAcoes
+                    wCadastrarAcao.MdiParent = this.ParentForm;
+                    //wAtualizaAcao.WindowState = FormWindowState.Maximized;
+                    wCadastrarAcao.Show();
+                }
+
+
+            }
+            catch { }
+        }
     }
 }

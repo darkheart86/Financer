@@ -83,9 +83,29 @@ namespace GUI_Test.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap this_is {
+            get {
+                object obj = ResourceManager.GetObject("this_is", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Title_top_middle {
             get {
                 object obj = ResourceManager.GetObject("Title_top_middle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap travolta {
+            get {
+                object obj = ResourceManager.GetObject("travolta", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

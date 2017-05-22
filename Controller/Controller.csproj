@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControleAcao.cs" />
+    <Compile Include="ControleVendas.cs" />
     <Compile Include="ControleCompra.cs" />
     <Compile Include="ControleEstoque.cs" />
+    <Compile Include="estilos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

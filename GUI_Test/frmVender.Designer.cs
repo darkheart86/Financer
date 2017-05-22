@@ -41,21 +41,21 @@
             this.lblBruto = new System.Windows.Forms.Label();
             this.lblAcao = new System.Windows.Forms.Label();
             this.grpVendas = new System.Windows.Forms.GroupBox();
-            this.txtData = new System.Windows.Forms.DateTimePicker();
-            this.lblValorMedio = new System.Windows.Forms.Label();
-            this.txtValorMedio = new System.Windows.Forms.TextBox();
-            this.grpVenda1 = new System.Windows.Forms.GroupBox();
             this.gprVenda2 = new System.Windows.Forms.GroupBox();
-            this.lblPercentualIR = new System.Windows.Forms.Label();
-            this.txtIR = new System.Windows.Forms.TextBox();
-            this.lblIRTotal = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.lblLiquido = new System.Windows.Forms.Label();
             this.txtLiquido = new System.Windows.Forms.TextBox();
+            this.lblIRTotal = new System.Windows.Forms.Label();
+            this.txtIrTotal = new System.Windows.Forms.TextBox();
+            this.lblPercentualIR = new System.Windows.Forms.Label();
+            this.txtIR = new System.Windows.Forms.TextBox();
+            this.grpVenda1 = new System.Windows.Forms.GroupBox();
+            this.lblValorMedio = new System.Windows.Forms.Label();
+            this.txtValorMedio = new System.Windows.Forms.TextBox();
+            this.txtData = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantidade)).BeginInit();
             this.grpVendas.SuspendLayout();
-            this.grpVenda1.SuspendLayout();
             this.gprVenda2.SuspendLayout();
+            this.grpVenda1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtValorDaAcao
@@ -65,7 +65,7 @@
             this.txtValorDaAcao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtValorDaAcao.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValorDaAcao.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtValorDaAcao.Location = new System.Drawing.Point(131, 48);
+            this.txtValorDaAcao.Location = new System.Drawing.Point(149, 48);
             this.txtValorDaAcao.MaximumSize = new System.Drawing.Size(300, 21);
             this.txtValorDaAcao.MinimumSize = new System.Drawing.Size(150, 21);
             this.txtValorDaAcao.Name = "txtValorDaAcao";
@@ -83,12 +83,12 @@
             this.lblValorDaAcao.BackColor = System.Drawing.Color.Transparent;
             this.lblValorDaAcao.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValorDaAcao.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblValorDaAcao.Location = new System.Drawing.Point(32, 53);
+            this.lblValorDaAcao.Location = new System.Drawing.Point(-2, 51);
             this.lblValorDaAcao.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblValorDaAcao.Name = "lblValorDaAcao";
-            this.lblValorDaAcao.Size = new System.Drawing.Size(92, 13);
+            this.lblValorDaAcao.Size = new System.Drawing.Size(148, 13);
             this.lblValorDaAcao.TabIndex = 0;
-            this.lblValorDaAcao.Text = "Valor da Ação:";
+            this.lblValorDaAcao.Text = "Valor de venda da ação:";
             this.lblValorDaAcao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // numQuantidade
@@ -96,14 +96,19 @@
             this.numQuantidade.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.numQuantidade.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numQuantidade.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.numQuantidade.Location = new System.Drawing.Point(131, 123);
+            this.numQuantidade.Location = new System.Drawing.Point(149, 123);
+            this.numQuantidade.Maximum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             this.numQuantidade.MaximumSize = new System.Drawing.Size(300, 0);
             this.numQuantidade.MinimumSize = new System.Drawing.Size(150, 0);
             this.numQuantidade.Name = "numQuantidade";
             this.numQuantidade.Size = new System.Drawing.Size(150, 21);
             this.numQuantidade.TabIndex = 5;
             this.numQuantidade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numQuantidade.ValueChanged += new System.EventHandler(this.AtualizaPrecoTotal);
+            this.numQuantidade.ValueChanged += new System.EventHandler(this.numQuantidade_ValueChanged);
             this.numQuantidade.Scroll += new System.Windows.Forms.ScrollEventHandler(this.numQuantidade_Scroll);
             this.numQuantidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorDaAcao_KeyPress);
             // 
@@ -125,13 +130,14 @@
             this.cmdEstoque.TabIndex = 11;
             this.cmdEstoque.Text = "&Estoque";
             this.cmdEstoque.UseVisualStyleBackColor = false;
+            this.cmdEstoque.Click += new System.EventHandler(this.cmdEstoque_Click);
             // 
             // txtBruto
             // 
             this.txtBruto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtBruto.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBruto.ForeColor = System.Drawing.Color.Blue;
-            this.txtBruto.Location = new System.Drawing.Point(131, 151);
+            this.txtBruto.Location = new System.Drawing.Point(149, 151);
             this.txtBruto.MaximumSize = new System.Drawing.Size(300, 21);
             this.txtBruto.MinimumSize = new System.Drawing.Size(150, 21);
             this.txtBruto.Multiline = true;
@@ -140,6 +146,7 @@
             this.txtBruto.Size = new System.Drawing.Size(150, 21);
             this.txtBruto.TabIndex = 6;
             this.txtBruto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBruto.TextChanged += new System.EventHandler(this.txtBruto_TextChanged);
             // 
             // cmbAcao
             // 
@@ -147,13 +154,13 @@
             this.cmbAcao.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbAcao.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cmbAcao.FormattingEnabled = true;
-            this.cmbAcao.Location = new System.Drawing.Point(131, 23);
+            this.cmbAcao.Location = new System.Drawing.Point(149, 23);
             this.cmbAcao.MaximumSize = new System.Drawing.Size(300, 0);
             this.cmbAcao.MinimumSize = new System.Drawing.Size(150, 0);
             this.cmbAcao.Name = "cmbAcao";
             this.cmbAcao.Size = new System.Drawing.Size(150, 21);
             this.cmbAcao.TabIndex = 1;
-            this.cmbAcao.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cmbAcao.SelectedIndexChanged += new System.EventHandler(this.cmbAcao_SelectedIndexChanged);
             // 
             // cmdCancelar
             // 
@@ -195,7 +202,7 @@
             this.cmdVender.TabIndex = 10;
             this.cmdVender.Text = "&Vender";
             this.cmdVender.UseVisualStyleBackColor = true;
-            this.cmdVender.Click += new System.EventHandler(this.cmdComprar_Click);
+            this.cmdVender.Click += new System.EventHandler(this.cmdVender_Click);
             // 
             // lblQuantidade
             // 
@@ -204,7 +211,7 @@
             this.lblQuantidade.BackColor = System.Drawing.Color.Transparent;
             this.lblQuantidade.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuantidade.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblQuantidade.Location = new System.Drawing.Point(47, 127);
+            this.lblQuantidade.Location = new System.Drawing.Point(65, 127);
             this.lblQuantidade.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblQuantidade.Name = "lblQuantidade";
             this.lblQuantidade.Size = new System.Drawing.Size(77, 13);
@@ -219,7 +226,7 @@
             this.lblData.BackColor = System.Drawing.Color.Transparent;
             this.lblData.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblData.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblData.Location = new System.Drawing.Point(27, 101);
+            this.lblData.Location = new System.Drawing.Point(45, 101);
             this.lblData.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblData.Name = "lblData";
             this.lblData.Size = new System.Drawing.Size(97, 13);
@@ -234,12 +241,12 @@
             this.lblBruto.BackColor = System.Drawing.Color.Transparent;
             this.lblBruto.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBruto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblBruto.Location = new System.Drawing.Point(33, 154);
+            this.lblBruto.Location = new System.Drawing.Point(3, 154);
             this.lblBruto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBruto.Name = "lblBruto";
-            this.lblBruto.Size = new System.Drawing.Size(90, 13);
+            this.lblBruto.Size = new System.Drawing.Size(146, 13);
             this.lblBruto.TabIndex = 0;
-            this.lblBruto.Text = "Valor (bruto) :";
+            this.lblBruto.Text = "Total da Venda (bruto) :";
             this.lblBruto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblAcao
@@ -249,7 +256,7 @@
             this.lblAcao.BackColor = System.Drawing.Color.Transparent;
             this.lblAcao.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAcao.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblAcao.Location = new System.Drawing.Point(84, 28);
+            this.lblAcao.Location = new System.Drawing.Point(102, 28);
             this.lblAcao.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAcao.Name = "lblAcao";
             this.lblAcao.Size = new System.Drawing.Size(40, 13);
@@ -276,78 +283,13 @@
             this.grpVendas.TabStop = false;
             this.grpVendas.Text = "Vender ação:";
             // 
-            // txtData
-            // 
-            this.txtData.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtData.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtData.Location = new System.Drawing.Point(131, 97);
-            this.txtData.MaximumSize = new System.Drawing.Size(300, 21);
-            this.txtData.MinimumSize = new System.Drawing.Size(150, 21);
-            this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(150, 21);
-            this.txtData.TabIndex = 4;
-            this.txtData.Value = new System.DateTime(2017, 5, 16, 19, 40, 33, 0);
-            // 
-            // lblValorMedio
-            // 
-            this.lblValorMedio.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblValorMedio.AutoSize = true;
-            this.lblValorMedio.BackColor = System.Drawing.Color.Transparent;
-            this.lblValorMedio.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorMedio.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblValorMedio.Location = new System.Drawing.Point(27, 77);
-            this.lblValorMedio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblValorMedio.Name = "lblValorMedio";
-            this.lblValorMedio.Size = new System.Drawing.Size(101, 13);
-            this.lblValorMedio.TabIndex = 0;
-            this.lblValorMedio.Text = "Valor da Médio: ";
-            this.lblValorMedio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtValorMedio
-            // 
-            this.txtValorMedio.AllowDrop = true;
-            this.txtValorMedio.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtValorMedio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtValorMedio.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValorMedio.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtValorMedio.Location = new System.Drawing.Point(131, 73);
-            this.txtValorMedio.MaximumSize = new System.Drawing.Size(300, 21);
-            this.txtValorMedio.MinimumSize = new System.Drawing.Size(150, 21);
-            this.txtValorMedio.Name = "txtValorMedio";
-            this.txtValorMedio.Size = new System.Drawing.Size(150, 21);
-            this.txtValorMedio.TabIndex = 3;
-            this.txtValorMedio.Text = "0";
-            this.txtValorMedio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // grpVenda1
-            // 
-            this.grpVenda1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.grpVenda1.Controls.Add(this.lblValorMedio);
-            this.grpVenda1.Controls.Add(this.txtValorMedio);
-            this.grpVenda1.Controls.Add(this.cmbAcao);
-            this.grpVenda1.Controls.Add(this.txtData);
-            this.grpVenda1.Controls.Add(this.txtBruto);
-            this.grpVenda1.Controls.Add(this.lblValorDaAcao);
-            this.grpVenda1.Controls.Add(this.lblQuantidade);
-            this.grpVenda1.Controls.Add(this.txtValorDaAcao);
-            this.grpVenda1.Controls.Add(this.lblData);
-            this.grpVenda1.Controls.Add(this.lblAcao);
-            this.grpVenda1.Controls.Add(this.numQuantidade);
-            this.grpVenda1.Controls.Add(this.lblBruto);
-            this.grpVenda1.Location = new System.Drawing.Point(36, 20);
-            this.grpVenda1.Name = "grpVenda1";
-            this.grpVenda1.Size = new System.Drawing.Size(317, 185);
-            this.grpVenda1.TabIndex = 0;
-            this.grpVenda1.TabStop = false;
-            // 
             // gprVenda2
             // 
             this.gprVenda2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gprVenda2.Controls.Add(this.lblLiquido);
             this.gprVenda2.Controls.Add(this.txtLiquido);
             this.gprVenda2.Controls.Add(this.lblIRTotal);
-            this.gprVenda2.Controls.Add(this.textBox2);
+            this.gprVenda2.Controls.Add(this.txtIrTotal);
             this.gprVenda2.Controls.Add(this.lblPercentualIR);
             this.gprVenda2.Controls.Add(this.txtIR);
             this.gprVenda2.Location = new System.Drawing.Point(36, 211);
@@ -355,69 +297,6 @@
             this.gprVenda2.Size = new System.Drawing.Size(317, 100);
             this.gprVenda2.TabIndex = 0;
             this.gprVenda2.TabStop = false;
-            // 
-            // lblPercentualIR
-            // 
-            this.lblPercentualIR.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblPercentualIR.AutoSize = true;
-            this.lblPercentualIR.BackColor = System.Drawing.Color.Transparent;
-            this.lblPercentualIR.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPercentualIR.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblPercentualIR.Location = new System.Drawing.Point(32, 17);
-            this.lblPercentualIR.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPercentualIR.Name = "lblPercentualIR";
-            this.lblPercentualIR.Size = new System.Drawing.Size(93, 13);
-            this.lblPercentualIR.TabIndex = 0;
-            this.lblPercentualIR.Text = "Percentual IR: ";
-            this.lblPercentualIR.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtIR
-            // 
-            this.txtIR.AllowDrop = true;
-            this.txtIR.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtIR.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtIR.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIR.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtIR.Location = new System.Drawing.Point(132, 12);
-            this.txtIR.MaximumSize = new System.Drawing.Size(300, 21);
-            this.txtIR.MinimumSize = new System.Drawing.Size(150, 21);
-            this.txtIR.Name = "txtIR";
-            this.txtIR.Size = new System.Drawing.Size(150, 21);
-            this.txtIR.TabIndex = 7;
-            this.txtIR.Text = "10";
-            this.txtIR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtIR.TextChanged += new System.EventHandler(this.txtIR_TextChanged);
-            // 
-            // lblIRTotal
-            // 
-            this.lblIRTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblIRTotal.AutoSize = true;
-            this.lblIRTotal.BackColor = System.Drawing.Color.Transparent;
-            this.lblIRTotal.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIRTotal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblIRTotal.Location = new System.Drawing.Point(66, 40);
-            this.lblIRTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblIRTotal.Name = "lblIRTotal";
-            this.lblIRTotal.Size = new System.Drawing.Size(54, 13);
-            this.lblIRTotal.TabIndex = 0;
-            this.lblIRTotal.Text = "IR total:";
-            this.lblIRTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // textBox2
-            // 
-            this.textBox2.AllowDrop = true;
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textBox2.Location = new System.Drawing.Point(132, 35);
-            this.textBox2.MaximumSize = new System.Drawing.Size(300, 21);
-            this.textBox2.MinimumSize = new System.Drawing.Size(150, 21);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(150, 21);
-            this.textBox2.TabIndex = 8;
-            this.textBox2.Text = "0";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblLiquido
             // 
@@ -450,23 +329,155 @@
             this.txtLiquido.Text = "0";
             this.txtLiquido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // lblIRTotal
+            // 
+            this.lblIRTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblIRTotal.AutoSize = true;
+            this.lblIRTotal.BackColor = System.Drawing.Color.Transparent;
+            this.lblIRTotal.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIRTotal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblIRTotal.Location = new System.Drawing.Point(66, 40);
+            this.lblIRTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblIRTotal.Name = "lblIRTotal";
+            this.lblIRTotal.Size = new System.Drawing.Size(54, 13);
+            this.lblIRTotal.TabIndex = 0;
+            this.lblIRTotal.Text = "IR total:";
+            this.lblIRTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtIrTotal
+            // 
+            this.txtIrTotal.AllowDrop = true;
+            this.txtIrTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtIrTotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtIrTotal.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIrTotal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtIrTotal.Location = new System.Drawing.Point(132, 35);
+            this.txtIrTotal.MaximumSize = new System.Drawing.Size(300, 21);
+            this.txtIrTotal.MinimumSize = new System.Drawing.Size(150, 21);
+            this.txtIrTotal.Name = "txtIrTotal";
+            this.txtIrTotal.Size = new System.Drawing.Size(150, 21);
+            this.txtIrTotal.TabIndex = 8;
+            this.txtIrTotal.Text = "0";
+            this.txtIrTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblPercentualIR
+            // 
+            this.lblPercentualIR.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPercentualIR.AutoSize = true;
+            this.lblPercentualIR.BackColor = System.Drawing.Color.Transparent;
+            this.lblPercentualIR.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPercentualIR.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblPercentualIR.Location = new System.Drawing.Point(32, 17);
+            this.lblPercentualIR.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPercentualIR.Name = "lblPercentualIR";
+            this.lblPercentualIR.Size = new System.Drawing.Size(93, 13);
+            this.lblPercentualIR.TabIndex = 0;
+            this.lblPercentualIR.Text = "Percentual IR: ";
+            this.lblPercentualIR.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtIR
+            // 
+            this.txtIR.AllowDrop = true;
+            this.txtIR.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtIR.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtIR.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIR.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtIR.Location = new System.Drawing.Point(132, 12);
+            this.txtIR.MaximumSize = new System.Drawing.Size(300, 21);
+            this.txtIR.MinimumSize = new System.Drawing.Size(150, 21);
+            this.txtIR.Name = "txtIR";
+            this.txtIR.Size = new System.Drawing.Size(150, 21);
+            this.txtIR.TabIndex = 7;
+            this.txtIR.Text = "0";
+            this.txtIR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtIR.TextChanged += new System.EventHandler(this.txtIR_TextChanged);
+            this.txtIR.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIR_KeyPress);
+            // 
+            // grpVenda1
+            // 
+            this.grpVenda1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grpVenda1.Controls.Add(this.lblValorMedio);
+            this.grpVenda1.Controls.Add(this.txtValorMedio);
+            this.grpVenda1.Controls.Add(this.cmbAcao);
+            this.grpVenda1.Controls.Add(this.txtData);
+            this.grpVenda1.Controls.Add(this.txtBruto);
+            this.grpVenda1.Controls.Add(this.lblValorDaAcao);
+            this.grpVenda1.Controls.Add(this.lblQuantidade);
+            this.grpVenda1.Controls.Add(this.txtValorDaAcao);
+            this.grpVenda1.Controls.Add(this.lblData);
+            this.grpVenda1.Controls.Add(this.lblAcao);
+            this.grpVenda1.Controls.Add(this.numQuantidade);
+            this.grpVenda1.Controls.Add(this.lblBruto);
+            this.grpVenda1.Location = new System.Drawing.Point(13, 20);
+            this.grpVenda1.Name = "grpVenda1";
+            this.grpVenda1.Size = new System.Drawing.Size(352, 185);
+            this.grpVenda1.TabIndex = 0;
+            this.grpVenda1.TabStop = false;
+            // 
+            // lblValorMedio
+            // 
+            this.lblValorMedio.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblValorMedio.AutoSize = true;
+            this.lblValorMedio.BackColor = System.Drawing.Color.Transparent;
+            this.lblValorMedio.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorMedio.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblValorMedio.Location = new System.Drawing.Point(45, 77);
+            this.lblValorMedio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblValorMedio.Name = "lblValorMedio";
+            this.lblValorMedio.Size = new System.Drawing.Size(101, 13);
+            this.lblValorMedio.TabIndex = 0;
+            this.lblValorMedio.Text = "Valor da Médio: ";
+            this.lblValorMedio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtValorMedio
+            // 
+            this.txtValorMedio.AllowDrop = true;
+            this.txtValorMedio.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtValorMedio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtValorMedio.Enabled = false;
+            this.txtValorMedio.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValorMedio.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtValorMedio.Location = new System.Drawing.Point(149, 73);
+            this.txtValorMedio.MaximumSize = new System.Drawing.Size(300, 21);
+            this.txtValorMedio.MinimumSize = new System.Drawing.Size(150, 21);
+            this.txtValorMedio.Name = "txtValorMedio";
+            this.txtValorMedio.Size = new System.Drawing.Size(150, 21);
+            this.txtValorMedio.TabIndex = 3;
+            this.txtValorMedio.Text = "0";
+            this.txtValorMedio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtData
+            // 
+            this.txtData.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtData.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtData.Location = new System.Drawing.Point(149, 97);
+            this.txtData.MaximumSize = new System.Drawing.Size(300, 21);
+            this.txtData.MinimumSize = new System.Drawing.Size(150, 21);
+            this.txtData.Name = "txtData";
+            this.txtData.Size = new System.Drawing.Size(150, 21);
+            this.txtData.TabIndex = 4;
+            this.txtData.Value = new System.DateTime(2017, 5, 16, 19, 40, 33, 0);
+            // 
             // frmVender
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(404, 373);
             this.Controls.Add(this.grpVendas);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MinimumSize = new System.Drawing.Size(420, 411);
             this.Name = "frmVender";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vender  ações";
             this.Load += new System.EventHandler(this.frmComprar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numQuantidade)).EndInit();
             this.grpVendas.ResumeLayout(false);
-            this.grpVenda1.ResumeLayout(false);
-            this.grpVenda1.PerformLayout();
             this.gprVenda2.ResumeLayout(false);
             this.gprVenda2.PerformLayout();
+            this.grpVenda1.ResumeLayout(false);
+            this.grpVenda1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -495,7 +506,7 @@
         private System.Windows.Forms.Label lblLiquido;
         private System.Windows.Forms.TextBox txtLiquido;
         private System.Windows.Forms.Label lblIRTotal;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtIrTotal;
         private System.Windows.Forms.Label lblPercentualIR;
         private System.Windows.Forms.TextBox txtIR;
     }

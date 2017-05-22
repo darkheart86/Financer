@@ -43,6 +43,7 @@ namespace GUI
             this.venderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.conteúdoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,21 +54,14 @@ namespace GUI
             this.calculadoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.novoToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.abrirToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.imprimirToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.pictureLogo = new System.Windows.Forms.PictureBox();
             this.pictureFundo = new System.Windows.Forms.PictureBox();
-            this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).BeginInit();
@@ -103,8 +97,8 @@ namespace GUI
             // 
             this.sairToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sairToolStripMenuItem.Image")));
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.sairToolStripMenuItem.Text = "Sai&r";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.sairToolStripMenuItem.Text = "&Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
             // açõesToolStripMenuItem
@@ -138,7 +132,7 @@ namespace GUI
             this.venderToolStripMenuItem});
             this.operaçõesToolStripMenuItem.Name = "operaçõesToolStripMenuItem";
             this.operaçõesToolStripMenuItem.Size = new System.Drawing.Size(89, 22);
-            this.operaçõesToolStripMenuItem.Text = "Operações";
+            this.operaçõesToolStripMenuItem.Text = "&Operações";
             // 
             // comprarToolStripMenuItem
             // 
@@ -160,8 +154,8 @@ namespace GUI
             // 
             this.relatóriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.comprasToolStripMenuItem,
-            this.estoqueToolStripMenuItem,
-            this.vendasToolStripMenuItem});
+            this.vendasToolStripMenuItem,
+            this.estoqueToolStripMenuItem});
             this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
             this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
             this.relatóriosToolStripMenuItem.Text = "&Relatórios";
@@ -169,15 +163,23 @@ namespace GUI
             // comprasToolStripMenuItem
             // 
             this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
-            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.comprasToolStripMenuItem.Text = "&Compras";
             this.comprasToolStripMenuItem.Click += new System.EventHandler(this.comprasToolStripMenuItem_Click);
+            // 
+            // vendasToolStripMenuItem
+            // 
+            this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
+            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.vendasToolStripMenuItem.Text = "&Vendas";
+            this.vendasToolStripMenuItem.Click += new System.EventHandler(this.vendasToolStripMenuItem_Click);
             // 
             // estoqueToolStripMenuItem
             // 
             this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
-            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.estoqueToolStripMenuItem.Text = "&Estoque";
+            this.estoqueToolStripMenuItem.Click += new System.EventHandler(this.estoqueToolStripMenuItem_Click);
             // 
             // ajudaToolStripMenuItem
             // 
@@ -235,38 +237,24 @@ namespace GUI
             this.notaToolStripMenuItem.Name = "notaToolStripMenuItem";
             this.notaToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.notaToolStripMenuItem.Text = "&Nota";
+            this.notaToolStripMenuItem.Click += new System.EventHandler(this.notaToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
             this.toolStrip1.BackColor = System.Drawing.Color.White;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(25, 30);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton8,
             this.novoToolStripButton,
-            this.toolStripButton5,
             this.toolStripButton1,
-            this.toolStripButton4,
             this.abrirToolStripButton,
-            this.toolStripButton3,
             this.toolStripButton2,
-            this.toolStripButton6,
             this.imprimirToolStripButton,
-            this.toolStripButton7,
             this.toolStripSeparator6});
             this.toolStrip1.Location = new System.Drawing.Point(0, 26);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.toolStrip1.Size = new System.Drawing.Size(784, 37);
             this.toolStrip1.TabIndex = 3;
-            // 
-            // toolStripButton8
-            // 
-            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.None;
-            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(23, 34);
-            this.toolStripButton8.Text = "toolStripButton3";
             // 
             // novoToolStripButton
             // 
@@ -279,28 +267,10 @@ namespace GUI
             this.novoToolStripButton.ToolTipText = "Cadastrar";
             this.novoToolStripButton.Click += new System.EventHandler(this.novoToolStripButton_Click);
             // 
-            // toolStripButton5
-            // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.None;
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(23, 34);
-            this.toolStripButton5.Text = "toolStripButton3";
-            // 
             // toolStripButton1
             // 
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(6, 37);
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.None;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 34);
-            this.toolStripButton4.Text = "toolStripButton3";
             // 
             // abrirToolStripButton
             // 
@@ -313,28 +283,10 @@ namespace GUI
             this.abrirToolStripButton.ToolTipText = "Comprar";
             this.abrirToolStripButton.Click += new System.EventHandler(this.abrirToolStripButton_Click);
             // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.None;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 34);
-            this.toolStripButton3.Text = "toolStripButton3";
-            // 
             // toolStripButton2
             // 
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(6, 37);
-            // 
-            // toolStripButton6
-            // 
-            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.None;
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(23, 34);
-            this.toolStripButton6.Text = "toolStripButton3";
             // 
             // imprimirToolStripButton
             // 
@@ -346,15 +298,6 @@ namespace GUI
             this.imprimirToolStripButton.Text = "&Imprimir";
             this.imprimirToolStripButton.ToolTipText = "Vender";
             this.imprimirToolStripButton.Click += new System.EventHandler(this.imprimirToolStripButton_Click);
-            // 
-            // toolStripButton7
-            // 
-            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.None;
-            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(23, 34);
-            this.toolStripButton7.Text = "toolStripButton3";
             // 
             // toolStripSeparator6
             // 
@@ -380,12 +323,6 @@ namespace GUI
             this.pictureFundo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureFundo.TabIndex = 6;
             this.pictureFundo.TabStop = false;
-            // 
-            // vendasToolStripMenuItem
-            // 
-            this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
-            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.vendasToolStripMenuItem.Text = "Vendas";
             // 
             // Form1
             // 
@@ -452,12 +389,6 @@ namespace GUI
         private ToolStripSeparator toolStripButton1;
         private ToolStripSeparator toolStripButton2;
         private ToolStripMenuItem operaçõesToolStripMenuItem;
-        private ToolStripButton toolStripButton8;
-        private ToolStripButton toolStripButton5;
-        private ToolStripButton toolStripButton4;
-        private ToolStripButton toolStripButton3;
-        private ToolStripButton toolStripButton6;
-        private ToolStripButton toolStripButton7;
         private ToolStripMenuItem açõesToolStripMenuItem;
         private ToolStripMenuItem cadastrarToolStripMenuItem;
         private ToolStripMenuItem atualizarToolStripMenuItem;

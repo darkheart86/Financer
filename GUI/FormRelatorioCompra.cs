@@ -31,7 +31,15 @@ namespace GUI
 
         }
 
-        private void cmdPesquisar_Click(object sender, EventArgs e)
+        
+
+        private void frmRelCompras_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13) this.cmdPesquisar_Click_1(sender, e);
+            //if (e.KeyChar == (char)27) txtEmpresa.Clear();
+        }
+
+        private void cmdPesquisar_Click_1(object sender, EventArgs e)
         {
             if (dtpDataInicial.Text != "" && dtpDataFinal.Text != "")
             {
@@ -43,13 +51,6 @@ namespace GUI
                 { }
 
             }
-
-        }
-
-        private void frmRelCompras_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13) this.cmdPesquisar_Click(sender, e);
-            //if (e.KeyChar == (char)27) txtEmpresa.Clear();
         }
     }
 }

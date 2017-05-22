@@ -110,6 +110,7 @@
             this.cmdCadastro.TabIndex = 6;
             this.cmdCadastro.Text = "&Cadastro";
             this.cmdCadastro.UseVisualStyleBackColor = false;
+            this.cmdCadastro.Click += new System.EventHandler(this.cmdCadastro_Click);
             // 
             // txtValorDaCompra
             // 
@@ -284,9 +285,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(404, 268);
             this.Controls.Add(this.grpCompras);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MinimumSize = new System.Drawing.Size(420, 306);
             this.Name = "frmComprar";
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Comprar ações";
             this.Load += new System.EventHandler(this.frmComprar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numQuantidade)).EndInit();

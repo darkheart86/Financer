@@ -69,13 +69,9 @@ namespace Model
         {
             get
             {
-                return _valorMedio;
+                return ValorAcumulado / Quantidade;
             }
-
-            set
-            {
-                _valorMedio = value;
-            }
+                        
         }
         public bool Inativo
         {
@@ -97,7 +93,7 @@ namespace Model
             this.IdAcao = 0;
             this.Quantidade = 0;
             this.ValorAcumulado = 0;
-            this.ValorMedio = 0;
+            //this.ValorMedio = 0;
         }
         public ModeloEstoque(int idAcao, int quantidade, float valorAcumulado)
         {
@@ -110,7 +106,7 @@ namespace Model
             this.IdAcao = 0;
             this.Quantidade = 0;
             this.ValorAcumulado = 0;
-            this.ValorMedio = 0;
+          //  this.ValorMedio = 0;
         }
         #endregion
     }

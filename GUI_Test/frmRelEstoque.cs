@@ -34,6 +34,7 @@ namespace GUI_Test
         private void cmdPesquisar_Click(object sender, EventArgs e)
         {
             ctrEstoque.Listar(dataGridView);
+            //dataGridView.Rows[0].Frozen = true;
         }
 
         private void frmRelCompras_KeyPress(object sender, KeyPressEventArgs e)

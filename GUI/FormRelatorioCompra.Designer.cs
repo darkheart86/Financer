@@ -31,64 +31,55 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.cmdPesquisar = new System.Windows.Forms.Button();
             this.dtpDataFinal = new System.Windows.Forms.DateTimePicker();
             this.lblDataFinal = new System.Windows.Forms.Label();
             this.dtpDataInicial = new System.Windows.Forms.DateTimePicker();
             this.lblDataInicial = new System.Windows.Forms.Label();
             this.gprControles = new System.Windows.Forms.GroupBox();
+            this.cmdPesquisar = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.gprControles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // cmdPesquisar
-            // 
-            this.cmdPesquisar.Location = new System.Drawing.Point(613, 22);
-            this.cmdPesquisar.Name = "cmdPesquisar";
-            this.cmdPesquisar.Size = new System.Drawing.Size(111, 23);
-            this.cmdPesquisar.TabIndex = 5;
-            this.cmdPesquisar.Text = "&Pesquisar";
-            this.cmdPesquisar.UseVisualStyleBackColor = true;
-            this.cmdPesquisar.Click += new System.EventHandler(this.cmdPesquisar_Click);
-            // 
             // dtpDataFinal
             // 
-            this.dtpDataFinal.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDataFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDataFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataFinal.Location = new System.Drawing.Point(280, 26);
+            this.dtpDataFinal.Location = new System.Drawing.Point(465, 19);
             this.dtpDataFinal.Name = "dtpDataFinal";
-            this.dtpDataFinal.Size = new System.Drawing.Size(106, 21);
+            this.dtpDataFinal.Size = new System.Drawing.Size(157, 31);
             this.dtpDataFinal.TabIndex = 2;
             this.dtpDataFinal.Value = new System.DateTime(2017, 5, 16, 0, 38, 8, 0);
             // 
             // lblDataFinal
             // 
             this.lblDataFinal.AutoSize = true;
-            this.lblDataFinal.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataFinal.Location = new System.Drawing.Point(203, 27);
+            this.lblDataFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDataFinal.Location = new System.Drawing.Point(347, 19);
             this.lblDataFinal.Name = "lblDataFinal";
-            this.lblDataFinal.Size = new System.Drawing.Size(71, 16);
+            this.lblDataFinal.Size = new System.Drawing.Size(112, 29);
             this.lblDataFinal.TabIndex = 4;
             this.lblDataFinal.Text = "Data final";
             // 
             // dtpDataInicial
             // 
-            this.dtpDataInicial.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDataInicial.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpDataInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDataInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataInicial.Location = new System.Drawing.Point(91, 27);
+            this.dtpDataInicial.Location = new System.Drawing.Point(142, 19);
             this.dtpDataInicial.Name = "dtpDataInicial";
-            this.dtpDataInicial.Size = new System.Drawing.Size(106, 21);
+            this.dtpDataInicial.Size = new System.Drawing.Size(157, 31);
             this.dtpDataInicial.TabIndex = 1;
             this.dtpDataInicial.Value = new System.DateTime(2000, 5, 16, 0, 38, 0, 0);
             // 
             // lblDataInicial
             // 
             this.lblDataInicial.AutoSize = true;
-            this.lblDataInicial.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataInicial.Location = new System.Drawing.Point(6, 27);
+            this.lblDataInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDataInicial.Location = new System.Drawing.Point(6, 19);
             this.lblDataInicial.Name = "lblDataInicial";
-            this.lblDataInicial.Size = new System.Drawing.Size(80, 16);
+            this.lblDataInicial.Size = new System.Drawing.Size(130, 29);
             this.lblDataInicial.TabIndex = 3;
             this.lblDataInicial.Text = "Data inicial";
             // 
@@ -102,12 +93,24 @@
             this.gprControles.Controls.Add(this.dtpDataInicial);
             this.gprControles.Controls.Add(this.lblDataInicial);
             this.gprControles.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gprControles.Location = new System.Drawing.Point(21, 3);
+            this.gprControles.Location = new System.Drawing.Point(3, 3);
             this.gprControles.Name = "gprControles";
-            this.gprControles.Size = new System.Drawing.Size(730, 61);
+            this.gprControles.Size = new System.Drawing.Size(776, 61);
             this.gprControles.TabIndex = 6;
             this.gprControles.TabStop = false;
-            this.gprControles.Text = "Pesquisar por data";
+            // 
+            // cmdPesquisar
+            // 
+            this.cmdPesquisar.BackColor = System.Drawing.Color.Black;
+            this.cmdPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdPesquisar.ForeColor = System.Drawing.Color.White;
+            this.cmdPesquisar.Location = new System.Drawing.Point(636, 15);
+            this.cmdPesquisar.Name = "cmdPesquisar";
+            this.cmdPesquisar.Size = new System.Drawing.Size(140, 40);
+            this.cmdPesquisar.TabIndex = 14;
+            this.cmdPesquisar.Text = "PESQUISAR";
+            this.cmdPesquisar.UseVisualStyleBackColor = false;
+            this.cmdPesquisar.Click += new System.EventHandler(this.cmdPesquisar_Click_1);
             // 
             // dataGridView
             // 
@@ -145,7 +148,7 @@
             this.dataGridView.Size = new System.Drawing.Size(776, 608);
             this.dataGridView.TabIndex = 7;
             // 
-            // FormRelatorio
+            // FormRelatorioCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -154,7 +157,7 @@
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.gprControles);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormRelatorio";
+            this.Name = "FormRelatorioCompra";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -167,13 +170,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button cmdPesquisar;
         private System.Windows.Forms.DateTimePicker dtpDataFinal;
         private System.Windows.Forms.Label lblDataFinal;
         private System.Windows.Forms.DateTimePicker dtpDataInicial;
         private System.Windows.Forms.Label lblDataInicial;
         private System.Windows.Forms.GroupBox gprControles;
         private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.Button cmdPesquisar;
     }
 }

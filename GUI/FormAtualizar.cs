@@ -22,14 +22,15 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void frmAtualizaAcao_Load(object sender, EventArgs e)
+
+        private void FormAtualizar_Load(object sender, EventArgs e)
         {
             AtualizaCombo();
-
-
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+
+
+        private void btnSalvar_Click_1(object sender, EventArgs e)
         {
             ControleAcao ctrl = controleAcao;
 
@@ -50,8 +51,8 @@ namespace GUI
                 }
                 AtualizaCombo();
             }
-
         }
+
 
         private void cmbAcoes_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -81,8 +82,6 @@ namespace GUI
             {
                 LimpaForm();
             }
-
-
         }
         private void LimpaForm()
         {
@@ -90,6 +89,9 @@ namespace GUI
             txtNomeAcao.Text = "";
             chkInativo.Checked = false;
         }
+
+
+
         private void AtualizaCombo()
         {
 
@@ -97,6 +99,19 @@ namespace GUI
             cmbAcoes.SelectedIndex = -1;
         }
 
+        private void txtCodigoAcao_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNomeAcao_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
+        
     }
-}
+    }
 

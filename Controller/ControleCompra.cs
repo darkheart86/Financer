@@ -19,6 +19,7 @@ namespace Controller
         SqlCommand comando = new SqlCommand();
         public ModeloCompra DadosDaCompra = new ModeloCompra();
         private ControleEstoque Estoque = new ControleEstoque();
+        public EstilosDGView Estilos = new EstilosDGView();
 
 
 
@@ -94,7 +95,7 @@ namespace Controller
             {
 
                 //strCmd= "SELECT * FROM COMPRAS WHERE DATA_COMPRA > @dataInicial AND DATA_COMPRA < @dataFinal";
-                strCmd = "SELECT A.LANCAMENTO_COMPRA,A.ACAO as CODIGO_DA_ACAO,B.EMPRESA,A.VALOR_COMPRA, A.DATA_COMPRA,A.QUANTIDADE,A.INATIVO as COMPRA_INATIVA,B.INATIVO as ACAO_INATIVA FROM COMPRAS A JOIN ACOES B ON A.ACAO = B.ID_ACAO where DATA_COMPRA > @dataInicial and DATA_COMPRA<@dataFinal";
+                strCmd = "SELECT A.LANCAMENTO_COMPRA AS 'ID Compra', A.DATA_COMPRA as 'Data',A.ACAO as 'Ação' ,B.EMPRESA as 'Empresa',A.QUANTIDADE as 'Qtde', A.VALOR_COMPRA as 'Total' FROM COMPRAS A JOIN ACOES B ON A.ACAO = B.ID_ACAO where DATA_COMPRA > @dataInicial and DATA_COMPRA<@dataFinal";
             }
             else
             {
@@ -126,10 +127,20 @@ namespace Controller
         public void         ListarCompras(string dataInicial, string dataFinal, int codigoDaAcao, DataGridView objetoAlvo)
         {
             DataSet ds = new DataSet();
-
+                        
             ds = this.ListarCompras(dataInicial, dataFinal);
+            float precoTotal =float.Parse(ds.Tables[0].Compute("Sum(Total)", "").ToString());
+            int qtdeTotal = int.Parse(ds.Tables[0].Compute("Sum(Qtde)", "").ToString());
+
+            ds.Tables[0].Rows.Add(null, null, null,"Total", qtdeTotal, precoTotal);
+
             objetoAlvo.DataSource = ds;
             objetoAlvo.DataMember = ds.Tables[0].TableName;
+            //MessageBox.Show(precoTotal.ToString());
+            objetoAlvo.Rows[objetoAlvo.Rows.Count - 1].DefaultCellStyle = Estilos.LinhaFinal;
+
+
+
 
         }
 
@@ -190,6 +201,7 @@ namespace Controller
         {
 
         }
-        
+     
+
     }
 }

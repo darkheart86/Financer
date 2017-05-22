@@ -61,9 +61,6 @@ namespace GUI_Test
             //DisableProcessWindowsGhosting();
             InitializeComponent();
         }
-
-
-
         private void mnuSair_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -100,7 +97,6 @@ namespace GUI_Test
             }
             catch { }
         }
-
         private void mnuRelCompras_Click(object sender, EventArgs e)
         {
             try
@@ -115,7 +111,6 @@ namespace GUI_Test
             }
             catch { }
         }
-
         private void mnuComprar_Click(object sender, EventArgs e)
         {
             try
@@ -130,7 +125,6 @@ namespace GUI_Test
             }
             catch { }
         }
-
         private void sobreToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -145,7 +139,6 @@ namespace GUI_Test
             }
             catch { }
         }
-
         private void mnuEstoque_Click(object sender, EventArgs e)
         {
             try
@@ -160,11 +153,10 @@ namespace GUI_Test
             }
             catch { }
         }
-
         private void cmnuCascata_Click(object sender, EventArgs e)
         {
-                           this.LayoutMdi(System.Windows.Forms.MdiLayout.Cascade);
-           
+            this.LayoutMdi(System.Windows.Forms.MdiLayout.Cascade);
+
         }
         private void cmnuMinimizarTodas_Click(object sender, EventArgs e)
         {
@@ -177,7 +169,6 @@ namespace GUI_Test
 
             }
         }
-
         private void mnuVender_Click(object sender, EventArgs e)
         {
             try
@@ -191,6 +182,31 @@ namespace GUI_Test
                 }
             }
             catch { }
+        }
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Application.OpenForms["frmThisIs"] == null) // Previne que crie mais de 1 instancia da mesma janela
+                {
+                    frmThisIs wfrmThisIs = new frmThisIs(); //Cria novo objeto winConsultaAcoes baseado no frmConsultaAcoes
+                    wfrmThisIs.TopMost = true;
+                    wfrmThisIs.StartPosition = FormStartPosition.Manual;
+                    wfrmThisIs.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - wfrmThisIs.Width,
+                                           Screen.PrimaryScreen.WorkingArea.Height - wfrmThisIs.Height);
+
+
+
+                    wfrmThisIs.Show();
+
+
+                }
+            }
+            catch { }
+        }
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

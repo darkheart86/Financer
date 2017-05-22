@@ -45,6 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="estilos.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FlatButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -59,6 +62,12 @@
     </Compile>
     <Compile Include="frmCadastrarAcao.Designer.cs">
       <DependentUpon>frmCadastrarAcao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThisIs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThisIs.Designer.cs">
+      <DependentUpon>frmThisIs.cs</DependentUpon>
     </Compile>
     <Compile Include="frmVender.cs">
       <SubType>Form</SubType>
@@ -109,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCadastrarAcao.resx">
       <DependentUpon>frmCadastrarAcao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThisIs.resx">
+      <DependentUpon>frmThisIs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVender.resx">
       <DependentUpon>frmVender.cs</DependentUpon>
@@ -169,6 +181,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Title_top_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\this_is.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\travolta.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

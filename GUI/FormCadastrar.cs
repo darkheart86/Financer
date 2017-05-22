@@ -59,6 +59,8 @@ namespace GUI
                 this.cmdCadastrar.PerformClick();
             }
         }
+
+        
     }
  }
 
