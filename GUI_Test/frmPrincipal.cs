@@ -195,7 +195,7 @@ namespace GUI_Test
                     wfrmThisIs.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - wfrmThisIs.Width,
                                            Screen.PrimaryScreen.WorkingArea.Height - wfrmThisIs.Height);
 
-
+                    
 
                     wfrmThisIs.Show();
 
@@ -207,6 +207,21 @@ namespace GUI_Test
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void mnuVendas_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Application.OpenForms["frmRelVendas"] == null) // Previne que crie mais de 1 instancia da mesma janela
+                {
+                    frmRelVendas wRelVendas = new frmRelVendas(); //Cria novo objeto winConsultaAcoes baseado no frmConsultaAcoes
+                    wRelVendas.MdiParent = this;
+                    //wAtualizaAcao.WindowState = FormWindowState.Maximized;
+                    wRelVendas.Show();
+                }
+            }
+            catch { }
         }
     }
 }

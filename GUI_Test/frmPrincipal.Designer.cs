@@ -140,20 +140,21 @@
             // mnuRelCompras
             // 
             this.mnuRelCompras.Name = "mnuRelCompras";
-            this.mnuRelCompras.Size = new System.Drawing.Size(152, 22);
+            this.mnuRelCompras.Size = new System.Drawing.Size(126, 22);
             this.mnuRelCompras.Text = "&Compras";
             this.mnuRelCompras.Click += new System.EventHandler(this.mnuRelCompras_Click);
             // 
             // mnuVendas
             // 
             this.mnuVendas.Name = "mnuVendas";
-            this.mnuVendas.Size = new System.Drawing.Size(152, 22);
+            this.mnuVendas.Size = new System.Drawing.Size(126, 22);
             this.mnuVendas.Text = "&Vendas";
+            this.mnuVendas.Click += new System.EventHandler(this.mnuVendas_Click);
             // 
             // mnuEstoque
             // 
             this.mnuEstoque.Name = "mnuEstoque";
-            this.mnuEstoque.Size = new System.Drawing.Size(152, 22);
+            this.mnuEstoque.Size = new System.Drawing.Size(126, 22);
             this.mnuEstoque.Text = "&Estoque";
             this.mnuEstoque.Click += new System.EventHandler(this.mnuEstoque_Click);
             // 
@@ -168,7 +169,7 @@
             // sobreToolStripMenuItem
             // 
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.sobreToolStripMenuItem.Text = "&Sobre";
             this.sobreToolStripMenuItem.Click += new System.EventHandler(this.sobreToolStripMenuItem_Click);
             // 
@@ -209,7 +210,7 @@
             this.Opacity = 0.99D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Financer";
-            this.TransparencyKey = System.Drawing.Color.Chartreuse;
+            this.TransparencyKey = System.Drawing.Color.Lime;
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.mnuPrincipal.ResumeLayout(false);
             this.mnuPrincipal.PerformLayout();

@@ -17,6 +17,8 @@ namespace GUI_Test
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new frmMain());
             Application.Run(new frmPrincipal());
+            //Application.Run(new frmThisIs());
+
         }
     }
 }

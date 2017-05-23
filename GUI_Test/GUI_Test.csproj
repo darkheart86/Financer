@@ -63,11 +63,19 @@
     <Compile Include="frmCadastrarAcao.Designer.cs">
       <DependentUpon>frmCadastrarAcao.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRelVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRelVendas.Designer.cs">
+      <DependentUpon>frmRelVendas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmThisIs.cs">
       <SubType>Form</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="frmThisIs.Designer.cs">
       <DependentUpon>frmThisIs.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="frmVender.cs">
       <SubType>Form</SubType>
@@ -119,8 +127,12 @@
     <EmbeddedResource Include="frmCadastrarAcao.resx">
       <DependentUpon>frmCadastrarAcao.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRelVendas.resx">
+      <DependentUpon>frmRelVendas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmThisIs.resx">
       <DependentUpon>frmThisIs.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVender.resx">
       <DependentUpon>frmVender.cs</DependentUpon>
@@ -177,9 +189,6 @@
     <None Include="Resources\step011.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Title_top_middle.png" />
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +196,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\travolta.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sparta.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thisissparta.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

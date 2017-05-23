@@ -65,7 +65,7 @@ namespace GUI_Test.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _1 {
             get {
-                object obj = ResourceManager.GetObject("1", resourceCulture);
+                object obj = ResourceManager.GetObject("_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -87,6 +87,15 @@ namespace GUI_Test.Properties {
             get {
                 object obj = ResourceManager.GetObject("this_is", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.IO.UnmanagedMemoryStream semelhante a System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream thisissparta {
+            get {
+                return ResourceManager.GetStream("thisissparta", resourceCulture);
             }
         }
         

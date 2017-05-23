@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Drawing.Imaging;
+using System.Media;
 
 namespace GUI_Test
 {
@@ -25,7 +26,7 @@ namespace GUI_Test
         public static extern bool ReleaseCapture();
         #endregion
         private GifImage gifImage = null;
-        private string filePath = @"C:\Users\Jeremy\Desktop\ExampleAnimation.gif";
+
 
         public frmThisIs()
         {
@@ -40,12 +41,14 @@ namespace GUI_Test
 
         private void frmThisIs_Load(object sender, EventArgs e)
         {
-            timer1.Enabled = true;
+           
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            SoundPlayer sound = new SoundPlayer(global::GUI_Test.Properties.Resources.thisissparta);
+            sound.Play();
         }
 
         private void MyMouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
