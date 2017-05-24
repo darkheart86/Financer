@@ -21,8 +21,7 @@ namespace Controller
         private ControleEstoque Estoque = new ControleEstoque();
         public EstilosDGView Estilos = new EstilosDGView();
 
-
-
+        
         public ControleVenda()
         {
             //Define que o comando SQL deve usar a conexao contida em objConexao 
@@ -37,13 +36,18 @@ namespace Controller
             comando.Parameters.Clear();
             if (ValidarDadosVenda(venda) == true)
             {
+                venda.LucroLiquido = venda.ValorVendaLiquida - (Estoque.ValorMedio(venda.CodigoAcao) * venda.Quantidade);
                 //Define o comando a ser enviado ao SQL
-                comando.CommandText = "insert into COMPRAS values(@codAcao, @valorvenda, @data, @quantidade, @inativo); select SCOPE_IDENTITY();";
+                comando.CommandText = "insert into VENDAS values(@codAcao, @valorvendabruta, @lucrobruto, @ir, @ircalculado, @lucroliquido, @quantidade, @data, @inativo);" +
+                "select SCOPE_IDENTITY();";
                 comando.Parameters.AddWithValue("@codAcao", venda.CodigoAcao);
-                comando.Parameters.AddWithValue("@valorvenda", venda.ValorVendaLiquida);
-                //Preciso ver um jeito de validar que o valor de data seja uma data :)
-                comando.Parameters.AddWithValue("@data", venda.Data);
+                comando.Parameters.AddWithValue("@valorvendabruta", venda.ValorVendaBruta);
+                comando.Parameters.AddWithValue("@lucrobruto", venda.LucroBruto);
+                comando.Parameters.AddWithValue("@ir", venda.PorcentagemIR);
+                comando.Parameters.AddWithValue("@ircalculado", venda.IRCalculado);
+                comando.Parameters.AddWithValue("@lucroliquido", venda.LucroLiquido * -1);
                 comando.Parameters.AddWithValue("@quantidade", venda.Quantidade);
+                comando.Parameters.AddWithValue("@data", venda.Data);
                 comando.Parameters.AddWithValue("@inativo", venda.Inativo);
 
                 //Conecta ao SQL e executa o comando
@@ -52,7 +56,7 @@ namespace Controller
                 venda.CodigoVenda = numLinhaDoRegistro;
                 conexao.Desconectar();
 
-                Estoque.Incrementar(venda);
+                Estoque.Decrementar(venda);
             }
         }
         public void Inserir()
@@ -169,6 +173,13 @@ namespace Controller
                 strErro += ("\nQuantidade tem que ser maior que 0 ");
                 Ok = false;
             }
+
+            if (venda.Quantidade > Estoque.Quantidade(venda.CodigoAcao))
+            {
+                strErro += ("\nQuantidade insulficiente em estoque ");
+                Ok = false;
+            }
+
             if ((r.Match(venda.Data).Success == false))
             {
                 strErro += ("\nData invalida, use dd/mm/aaaa ");

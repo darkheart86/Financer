@@ -59,7 +59,7 @@ namespace Model
                 _valorVendaBruta = value;
             }
         }
-        public float ValorVendaLiquida //*
+        public virtual float ValorVendaLiquida //*
         {
             get
             {
@@ -83,7 +83,7 @@ namespace Model
                 _lucroBruto = value;
             }
         }
-        public float LucroLiquido
+        public virtual float LucroLiquido
         {
             //Seria ValorVendaLiquida - ValorMedio de estoque
             get

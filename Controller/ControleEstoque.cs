@@ -25,13 +25,18 @@ namespace Controller
 
         public void Incrementar(ModeloEstoque obj)
         {
+
            // msg(Buscar(obj.IdAcao).IdAcao.ToString());
             if (Buscar(obj.IdAcao) != null)
-            {                
+            {
+                
+                obj.ValorAcumulado *= -1;
                 Atualizar(obj);
             }
             else
-            {
+            {                
+                
+                obj.ValorAcumulado *= -1;
                 Inserir(obj);
             }
 
@@ -50,12 +55,12 @@ namespace Controller
         public void Decrementar(ModeloEstoque obj)
         {
             int qtdeEmEstoque = Buscar(obj.IdAcao).Quantidade;
-            if (obj.Quantidade < qtdeEmEstoque)
+            if (obj.Quantidade <= qtdeEmEstoque)
             {
                 msg("Decremeta");
 
                 obj.Quantidade *= -1;
-                obj.ValorAcumulado *= -1;
+                //obj.ValorAcumulado *= -1;
                 Atualizar(obj);
             }
             else
@@ -227,6 +232,7 @@ namespace Controller
         public void Listar(DataGridView obj)
         {
             DataSet ds = Listar();
+
 
             float precoTotal = float.Parse(ds.Tables[0].Compute("Sum(Total)", "").ToString());
             int qtdeTotal = int.Parse(ds.Tables[0].Compute("Sum(Qtde)", "").ToString());

@@ -39,31 +39,8 @@ namespace GUI_Test
 
         private void cmdVender_Click(object sender, EventArgs e)
         {
-            ModeloVenda dv = ctrVenda.DadosDaVenda;
-            string idacao = dv.CodigoAcao.ToString();
-            string idvenda = dv.CodigoVenda.ToString();
-            string data = dv.Data.ToString();
-            string inativo = dv.Inativo.ToString();
-            string ircalc = dv.IRCalculado.ToString();
-            string lucrob = dv.LucroBruto.ToString();
-            string lucrol = dv.LucroLiquido.ToString();
-            string percir = dv.PorcentagemIR.ToString();
-            string qte = dv.Quantidade.ToString();
-            string vendab = dv.ValorVendaBruta.ToString();
-            string vendal = dv.ValorVendaLiquida.ToString();
-
-            string model = "\nacao: " + idacao +
-                            "\nvenda: " + idvenda +
-                            "\ndata: " + data +
-                             "\nqte: " + qte +
-                            "\nvendaB: " + vendab +
-                            "\nvendaL: " + vendal +
-                            "\nlucroB " + lucrob +
-                            "\nlucrol" + lucrol +
-                            "\nIR%: " + percir +
-                            "\nIR calc:" + ircalc;
-    
-            MessageBox.Show(model);
+            ShowModelo();
+            ctrVenda.Inserir();
         }
         private void cmdEstoque_Click(object sender, EventArgs e)
         {
@@ -242,7 +219,8 @@ namespace GUI_Test
             //MessageBox.Show("Exb: " + idAcao.ToString());
             if (idAcao > 0)
             {
-                valorMedio = crtEstoque.ValorMedio(idAcao);
+                valorMedio = crtEstoque.ValorMedio(idAcao) *-1;
+                if (valorMedio < 0) valorMedio = 0;
                 txtValorMedio.Text = valorMedio.ToString();
                 //MessageBox.Show(valorMedio.ToString());
 
@@ -294,6 +272,34 @@ namespace GUI_Test
         {
             txtLiquido.Text = ctrVenda.DadosDaVenda.ValorVendaLiquida.ToString();
         }
+        private void ShowModelo()
+        {
+            ModeloVenda dv = ctrVenda.DadosDaVenda;
+            string idacao = dv.CodigoAcao.ToString();
+            string idvenda = dv.CodigoVenda.ToString();
+            string data = dv.Data.ToString();
+            string inativo = dv.Inativo.ToString();
+            string ircalc = dv.IRCalculado.ToString();
+            string lucrob = dv.LucroBruto.ToString();
+            string lucrol = dv.LucroLiquido.ToString();
+            string percir = dv.PorcentagemIR.ToString();
+            string qte = dv.Quantidade.ToString();
+            string vendab = dv.ValorVendaBruta.ToString();
+            string vendal = dv.ValorVendaLiquida.ToString();
+
+            string model = "\nacao: " + idacao +
+                            "\nvenda: " + idvenda +
+                            "\ndata: " + data +
+                             "\nqte: " + qte +
+                            "\nvendaB: " + vendab +
+                            "\nvendaL: " + vendal +
+                            "\nlucroB " + lucrob +
+                            "\nlucrol" + lucrol +
+                            "\nIR%: " + percir +
+                            "\nIR calc:" + ircalc;
+
+            MessageBox.Show(model);
+        }
 
 
 
@@ -306,6 +312,9 @@ namespace GUI_Test
 
         #endregion
 
-       
+        private void txtValorMedio_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
