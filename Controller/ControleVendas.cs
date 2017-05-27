@@ -36,16 +36,17 @@ namespace Controller
             comando.Parameters.Clear();
             if (ValidarDadosVenda(venda) == true)
             {
-                venda.LucroLiquido = venda.ValorVendaLiquida - (Estoque.ValorMedio(venda.CodigoAcao) * venda.Quantidade);
+                //venda.LucroLiquido = venda.ValorVendaLiquida - (Estoque.ValorMedio(venda.CodigoAcao) * venda.Quantidade);
                 //Define o comando a ser enviado ao SQL
-                comando.CommandText = "insert into VENDAS values(@codAcao, @valorvendabruta, @lucrobruto, @ir, @ircalculado, @lucroliquido, @quantidade, @data, @inativo);" +
+                comando.CommandText = "insert into VENDAS values(@codAcao, @valordaacao, @valorvendabruta, @lucrobruto, @ir, @ircalculado, @lucroliquido, @quantidade, @data, @inativo);" +
                 "select SCOPE_IDENTITY();";
                 comando.Parameters.AddWithValue("@codAcao", venda.CodigoAcao);
                 comando.Parameters.AddWithValue("@valorvendabruta", venda.ValorVendaBruta);
+                comando.Parameters.AddWithValue("@valordaacao", venda.ValorMedioDeEstoque);
                 comando.Parameters.AddWithValue("@lucrobruto", venda.LucroBruto);
                 comando.Parameters.AddWithValue("@ir", venda.PorcentagemIR);
                 comando.Parameters.AddWithValue("@ircalculado", venda.IRCalculado);
-                comando.Parameters.AddWithValue("@lucroliquido", venda.LucroLiquido * -1);
+                comando.Parameters.AddWithValue("@lucroliquido", venda.LucroLiquido);
                 comando.Parameters.AddWithValue("@quantidade", venda.Quantidade);
                 comando.Parameters.AddWithValue("@data", venda.Data);
                 comando.Parameters.AddWithValue("@inativo", venda.Inativo);
@@ -69,7 +70,7 @@ namespace Controller
         {
             //DadosDaVenda.CodigoVenda;
             DadosDaVenda.CodigoAcao = codigoAcao;
-            DadosDaVenda.ValorVendaBruta = valorTotalDaVenda;
+            //DadosDaVenda.ValorVendaBruta = valorTotalDaVenda;
             DadosDaVenda.Data = dataDaVenda;
             DadosDaVenda.Quantidade = quantidade;
             DadosDaVenda.Inativo = inativo;
@@ -148,7 +149,7 @@ namespace Controller
 
         }
 
-        public ModeloVenda BuscarVenda(int id)
+        public ModeloVenda  BuscarVenda(int id)
         {
             return null;
         }
@@ -190,29 +191,16 @@ namespace Controller
 
         }
        
+        
+        //public void     Estornar(ModeloVenda venda)
+        //{
 
-        public void     NoEstoque(ModeloVenda venda)
-        {
+        //}
+        //public void     Estornar(int id_venda)
+        //{
 
-        }
-        public void     Estornar(ModeloVenda venda)
-        {
+        //}
 
-        }
-        public void     Estornar(int id_venda)
-        {
-
-        }
-
-        public void     ValorMedio(int id)
-        {
-
-        }
-        public void     ValorMedio()
-        {
-
-        }
-     
 
     }
 }

@@ -9,17 +9,19 @@ namespace Model
     public class ModeloVenda
     {
         #region Atributos
-        int _codigoVenda;
-        int _codigoAcao;
-        float _valorVendaBruta;
-        float _valorVendaLiquida;
-        float _lucroBruto;
-        float _lucroLiquido;
-        float _porcentagemIR;
-        float _irCalculado;
-        string _data;
-        int _quantidade;
-        bool _inativo;
+        int _codigoVenda;                           //primario
+        int _codigoAcao;                            //primario
+        float _valorVendaAcao;                      //primario
+        float _valorVendaBruta;                     //calculado
+        float _valorVendaLiquida;                   //calculado
+        float _lucroBruto;                          //
+        float _lucroLiquido;                        //calculado
+        float _porcentagemIR;                       //primario
+        float _irCalculado;                         //calculado
+        float _valorMedioDeEstoque;                 //primario
+        string _data;                               //primario
+        int _quantidade;                            //primario
+        bool _inativo;                              //primario
         #endregion
 
         #region Propriedades
@@ -47,19 +49,29 @@ namespace Model
                 _codigoAcao = value;
             }
         }
-        public float ValorVendaBruta
+        public float ValorVendaAcao
         {
             get
             {
-                return _valorVendaBruta;
+                return _valorVendaAcao;
             }
+
 
             set
             {
-                _valorVendaBruta = value;
+                _valorVendaAcao = value;
             }
         }
-        public virtual float ValorVendaLiquida //*
+        public float ValorVendaBruta //*
+        {
+            get
+            {
+                return Quantidade * ValorVendaAcao;
+            }
+
+            
+        }
+        public float ValorVendaLiquida //*
         {
             get
             {
@@ -71,11 +83,11 @@ namespace Model
             //    _valorVendaLiquida = value;
             //}
         }  
-        public float LucroBruto //* 
+        public float LucroBruto
         {
             get
             {
-                return _lucroBruto;
+                return (_lucroBruto - ValorVendaLiquida);
             }
 
             set
@@ -83,20 +95,17 @@ namespace Model
                 _lucroBruto = value;
             }
         }
-        public virtual float LucroLiquido
+        public virtual float LucroLiquido//*
         {
             //Seria ValorVendaLiquida - ValorMedio de estoque
             get
             {
-                return _lucroLiquido;
+                return ValorVendaLiquida - IVV;
             }
 
-            set
-            {
-                _lucroLiquido = value;
-            }
+           
         }
-        public float PorcentagemIR
+        public float PorcentagemIR//*
         {
             get
             {
@@ -108,17 +117,40 @@ namespace Model
                 _porcentagemIR = value;
             }
         }
-        public float IRCalculado//Campo calculado
+        public float IRCalculado//*
         {
+           
             get
-            {
+            {   // IrCalculado sobre venda bruta
                 return ValorVendaBruta * (PorcentagemIR / 100);
+
+                //IR Calculado sobre lucro
             }
 
             //set
             //{
             //    _irCalculado = value;
             //}
+        }
+        public float ValorMedioDeEstoque
+        {
+            get
+            {
+                //return _valorMedioDeEstoque;
+                if (_valorMedioDeEstoque >= 0)
+                {
+                    return _valorMedioDeEstoque;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+
+        set
+            {
+                _valorMedioDeEstoque = value;
+            }
         }
         public string Data
         {
@@ -144,6 +176,15 @@ namespace Model
                 _quantidade = value;
             }
         }
+        public float IVV//*
+        {
+            get
+            {
+               return Quantidade * ValorMedioDeEstoque;
+            }
+
+
+        }
         public bool Inativo
         {
             get
@@ -155,22 +196,21 @@ namespace Model
             {
                 _inativo = value;
             }
-        }
+        }       
+
         public void Clear()
         {
             this.CodigoVenda = 0;
             this.CodigoAcao = 0;
-            this.ValorVendaBruta = 0;
-            //this.ValorVendaLiquida = 0;
-            this.LucroBruto = 0;
-            this.LucroLiquido = 0;
+            this.ValorVendaAcao = 0;
             this.PorcentagemIR = 0;
-            //this.IRCalculado = 0;
-            //this.Data = ;
+            this.ValorMedioDeEstoque = 0;
+            this.Data = DateTime.Now.ToShortDateString();
             this.Quantidade = 0;
             this.Inativo = false;
 
         }
+
         #endregion
 
         #region Metodos
@@ -185,12 +225,7 @@ namespace Model
             try
             {                
                 this.CodigoAcao = 0;
-                this.ValorVendaBruta = 0;
-                //this.ValorVendaLiquida = 0;
-                this.LucroBruto = 0;
-                this.LucroLiquido = 0;
                 this.PorcentagemIR = 0;
-                //this.IRCalculado = 0;
                 this.Data = data;
                 this.Quantidade = 0;
                 this.Inativo = false;

@@ -69,7 +69,9 @@ namespace Model
         {
             get
             {
-                return ValorAcumulado / Quantidade;
+                int _quantidade = Quantidade;
+                if (_quantidade <= 0) _quantidade = 1;
+                return ValorAcumulado / _quantidade;
             }
                         
         }

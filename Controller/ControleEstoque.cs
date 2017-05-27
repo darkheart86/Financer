@@ -30,13 +30,13 @@ namespace Controller
             if (Buscar(obj.IdAcao) != null)
             {
                 
-                obj.ValorAcumulado *= -1;
+                //obj.ValorAcumulado *= -1;
                 Atualizar(obj);
             }
             else
             {                
                 
-                obj.ValorAcumulado *= -1;
+                //obj.ValorAcumulado *= -1;
                 Inserir(obj);
             }
 
@@ -60,7 +60,7 @@ namespace Controller
                 msg("Decremeta");
 
                 obj.Quantidade *= -1;
-                //obj.ValorAcumulado *= -1;
+                obj.ValorAcumulado *= -1;
                 Atualizar(obj);
             }
             else
@@ -115,14 +115,27 @@ namespace Controller
 
             if (obj != null)
             {
-                return obj.ValorAcumulado / obj.Quantidade;
+                return obj.ValorMedio;
             }
             else
             {
                 return 0;
             }
         }
+        public float ValorAcumulado(int codigo)
+        {
+            if (codigo <= 0) return 0;
+            ModeloEstoque obj = Buscar(codigo);
 
+            if (obj != null)
+            {
+                return obj.ValorAcumulado;
+            }
+            else
+            {
+                return 0;
+            }
+        }
         private void Inserir(ModeloEstoque obj)
         {
             //Define o comando a ser enviado ao SQL
@@ -218,7 +231,7 @@ namespace Controller
         {
             SqlDataAdapter da = new SqlDataAdapter();
             DataSet dt = new DataSet();
-            string strCmd = "SELECT A.ACAO AS 'Ação', B.EMPRESA AS 'Empresa', A.QUANTIDADE AS 'Qtde', A.VALOR_ACUMULADO AS 'Total' FROM ESTOQUE A JOIN ACOES B ON A.ACAO = B.ID_ACAO";
+            string strCmd = "SELECT A.ACAO AS 'Ação', B.EMPRESA AS 'Empresa', A.QUANTIDADE AS 'Qtde', A.VALOR_ACUMULADO AS 'Investimento' FROM ESTOQUE A JOIN ACOES B ON A.ACAO = B.ID_ACAO";
 
                 comando.Parameters.Clear();
                 comando.CommandText = strCmd;
@@ -233,9 +246,14 @@ namespace Controller
         {
             DataSet ds = Listar();
 
+            float precoTotal = 0;
+            int qtdeTotal= 0;
+            if (ds.Tables[0].Rows.Count > 0)
+            { 
+            precoTotal = float.Parse(ds.Tables[0].Compute("Sum(Investimento)", "").ToString());
+            qtdeTotal = int.Parse(ds.Tables[0].Compute("Sum(Qtde)", "").ToString());
+            }
 
-            float precoTotal = float.Parse(ds.Tables[0].Compute("Sum(Total)", "").ToString());
-            int qtdeTotal = int.Parse(ds.Tables[0].Compute("Sum(Qtde)", "").ToString());
             EstilosDGView Estilos = new EstilosDGView();
 
             ds.Tables[0].Rows.Add(null, "Total", qtdeTotal, precoTotal);

@@ -42,8 +42,8 @@
             this.gprVenda2 = new System.Windows.Forms.GroupBox();
             this.txtBruto = new System.Windows.Forms.TextBox();
             this.lblBruto = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblLucro = new System.Windows.Forms.TextBox();
+            this.lblLucro = new System.Windows.Forms.Label();
+            this.txtLucro = new System.Windows.Forms.TextBox();
             this.lblLiquido = new System.Windows.Forms.Label();
             this.txtLiquido = new System.Windows.Forms.TextBox();
             this.lblIRTotal = new System.Windows.Forms.Label();
@@ -75,8 +75,9 @@
             this.txtValorDaAcao.TabIndex = 2;
             this.txtValorDaAcao.Text = "0";
             this.txtValorDaAcao.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtValorDaAcao.TextChanged += new System.EventHandler(this.AtualizaPrecoTotal);
+            this.txtValorDaAcao.TextChanged += new System.EventHandler(this.txtValorDaAcao_TextChanged);
             this.txtValorDaAcao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorDaAcao_KeyPress);
+            this.txtValorDaAcao.Leave += new System.EventHandler(this.txtValorDaAcao_Leave);
             // 
             // lblValorDaAcao
             // 
@@ -259,8 +260,8 @@
             this.gprVenda2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gprVenda2.Controls.Add(this.txtBruto);
             this.gprVenda2.Controls.Add(this.lblBruto);
-            this.gprVenda2.Controls.Add(this.label1);
             this.gprVenda2.Controls.Add(this.lblLucro);
+            this.gprVenda2.Controls.Add(this.txtLucro);
             this.gprVenda2.Controls.Add(this.lblLiquido);
             this.gprVenda2.Controls.Add(this.txtLiquido);
             this.gprVenda2.Controls.Add(this.lblIRTotal);
@@ -303,38 +304,38 @@
             this.lblBruto.Text = "Venda bruta: ";
             this.lblBruto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(101, 109);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Lucro: ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // lblLucro
             // 
-            this.lblLucro.AllowDrop = true;
             this.lblLucro.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblLucro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.lblLucro.Enabled = false;
+            this.lblLucro.AutoSize = true;
+            this.lblLucro.BackColor = System.Drawing.Color.Transparent;
             this.lblLucro.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLucro.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblLucro.Location = new System.Drawing.Point(150, 106);
-            this.lblLucro.MaximumSize = new System.Drawing.Size(300, 21);
-            this.lblLucro.MinimumSize = new System.Drawing.Size(150, 21);
+            this.lblLucro.Location = new System.Drawing.Point(101, 109);
+            this.lblLucro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLucro.Name = "lblLucro";
-            this.lblLucro.ReadOnly = true;
-            this.lblLucro.Size = new System.Drawing.Size(150, 21);
-            this.lblLucro.TabIndex = 11;
-            this.lblLucro.Text = "0";
-            this.lblLucro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lblLucro.Size = new System.Drawing.Size(47, 13);
+            this.lblLucro.TabIndex = 10;
+            this.lblLucro.Text = "Lucro: ";
+            this.lblLucro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtLucro
+            // 
+            this.txtLucro.AllowDrop = true;
+            this.txtLucro.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtLucro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtLucro.Enabled = false;
+            this.txtLucro.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLucro.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtLucro.Location = new System.Drawing.Point(150, 106);
+            this.txtLucro.MaximumSize = new System.Drawing.Size(300, 21);
+            this.txtLucro.MinimumSize = new System.Drawing.Size(150, 21);
+            this.txtLucro.Name = "txtLucro";
+            this.txtLucro.ReadOnly = true;
+            this.txtLucro.Size = new System.Drawing.Size(150, 21);
+            this.txtLucro.TabIndex = 11;
+            this.txtLucro.Text = "0";
+            this.txtLucro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblLiquido
             // 
@@ -485,7 +486,6 @@
             this.txtValorMedio.TabIndex = 3;
             this.txtValorMedio.Text = "0";
             this.txtValorMedio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtValorMedio.TextChanged += new System.EventHandler(this.txtValorMedio_TextChanged);
             // 
             // txtData
             // 
@@ -499,6 +499,7 @@
             this.txtData.Size = new System.Drawing.Size(150, 21);
             this.txtData.TabIndex = 4;
             this.txtData.Value = new System.DateTime(2017, 5, 16, 19, 40, 33, 0);
+            this.txtData.ValueChanged += new System.EventHandler(this.txtData_ValueChanged);
             // 
             // frmVender
             // 
@@ -550,7 +551,7 @@
         private System.Windows.Forms.TextBox txtIR;
         private System.Windows.Forms.TextBox txtBruto;
         private System.Windows.Forms.Label lblBruto;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox lblLucro;
+        private System.Windows.Forms.Label lblLucro;
+        private System.Windows.Forms.TextBox txtLucro;
     }
 }
