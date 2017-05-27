@@ -62,7 +62,7 @@
             this.mnuAjuda});
             this.mnuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnuPrincipal.Name = "mnuPrincipal";
-            this.mnuPrincipal.Size = new System.Drawing.Size(784, 24);
+            this.mnuPrincipal.Size = new System.Drawing.Size(1025, 24);
             this.mnuPrincipal.TabIndex = 0;
             this.mnuPrincipal.Text = "menuStrip1";
             // 
@@ -201,7 +201,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 562);
+            this.ClientSize = new System.Drawing.Size(1025, 692);
             this.ContextMenuStrip = this.cmnuMdi;
             this.Controls.Add(this.mnuPrincipal);
             this.IsMdiContainer = true;

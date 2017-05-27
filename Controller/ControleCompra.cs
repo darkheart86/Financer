@@ -95,11 +95,11 @@ namespace Controller
             {
 
                 //strCmd= "SELECT * FROM COMPRAS WHERE DATA_COMPRA > @dataInicial AND DATA_COMPRA < @dataFinal";
-                strCmd = "SELECT A.LANCAMENTO_COMPRA AS 'ID Compra', A.DATA_COMPRA as 'Data',A.ACAO as 'Ação' ,B.EMPRESA as 'Empresa',A.QUANTIDADE as 'Qtde', A.VALOR_COMPRA as 'Total' FROM COMPRAS A JOIN ACOES B ON A.ACAO = B.ID_ACAO where DATA_COMPRA > @dataInicial and DATA_COMPRA<@dataFinal";
+                strCmd = "SELECT A.LANCAMENTO_COMPRA AS 'ID Compra', A.DATA_COMPRA as 'Data',A.ACAO as 'Ação' ,B.EMPRESA as 'Empresa',A.QUANTIDADE as 'Qtde', A.VALOR_COMPRA as 'Total' FROM COMPRAS A JOIN ACOES B ON A.ACAO = B.ID_ACAO where DATA_COMPRA >= @dataInicial and DATA_COMPRA <= @dataFinal";
             }
             else
             {
-                strCmd = "SELECT * FROM COMPRAS WHERE DATA_COMPRA > @dataInicial AND DATA_COMPRA < @dataFinal AND ACAO = @codAcao ";
+                strCmd = "SELECT A.LANCAMENTO_COMPRA AS 'ID Compra', A.DATA_COMPRA as 'Data',A.ACAO as 'Ação' ,B.EMPRESA as 'Empresa',A.QUANTIDADE as 'Qtde', A.VALOR_COMPRA as 'Total' FROM COMPRAS A JOIN ACOES B ON A.ACAO = B.ID_ACAO where DATA_COMPRA >= @dataInicial and DATA_COMPRA <= @dataFinal AND ACAO = @codAcao ";
             }
 
             if (Validacao.validarData(dataInicial) == true && Validacao.validarData(dataFinal)== true)

@@ -177,7 +177,7 @@
             this.HelpButton = true;
             this.Name = "frmRelVendas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Consultar Compras";
+            this.Text = "Consultar Vendas";
             this.Load += new System.EventHandler(this.frmConsultaCompras_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmRelCompras_KeyPress);
             this.gprControles.ResumeLayout(false);

@@ -100,7 +100,10 @@ namespace Controller
             {
 
                 //strCmd= "SELECT * FROM COMPRAS WHERE DATA_COMPRA > @dataInicial AND DATA_COMPRA < @dataFinal";
-                strCmd = "SELECT A.LANCAMENTO_COMPRA AS 'ID Venda', A.DATA_COMPRA as 'Data',A.ACAO as 'Ação' ,B.EMPRESA as 'Empresa',A.QUANTIDADE as 'Qtde', A.VALOR_COMPRA as 'Total' FROM COMPRAS A JOIN ACOES B ON A.ACAO = B.ID_ACAO where DATA_COMPRA > @dataInicial and DATA_COMPRA<@dataFinal";
+                strCmd = "SELECT A.ID_VENDA AS 'ID Venda', A.DATA_VENDA as 'Data',A.ACAO as 'Ação' ,B.EMPRESA as 'Empresa',A.QUANTIDADE as 'Qtde', A.VALOR_MEDIO_ACAO as 'Média'," +
+                "A.VALOR_VENDA as 'Venda', A.IR as 'IR', A.IR_CALCULADO as 'IR_calculado', A.LUCRO as 'Lucro'" +
+                "FROM VENDAS A JOIN ACOES B ON A.ACAO = B.ID_ACAO where DATA_VENDA >= @datainicial and DATA_VENDA <= @datafinal";
+
             }
             else
             {
@@ -129,20 +132,38 @@ namespace Controller
         {
             return ListarVendas(dataInicial, dataFinal,0); 
         }
-        public void         ListarVendas(string dataInicial, string dataFinal, int codigoDaAcao, DataGridView objetoAlvo)
+        public void         ListarVendas(string dataInicial, string dataFinal, int codigoDaAcao, DataGridView obj)
         {
-            DataSet ds = new DataSet();
-                        
-            ds = this.ListarVendas(dataInicial, dataFinal);
-            float precoTotal =float.Parse(ds.Tables[0].Compute("Sum(Total)", "").ToString());
-            int qtdeTotal = int.Parse(ds.Tables[0].Compute("Sum(Qtde)", "").ToString());
+            DataSet ds = ListarVendas(dataInicial, dataFinal,codigoDaAcao);
 
-            ds.Tables[0].Rows.Add(null, null, null,"Total", qtdeTotal, precoTotal);
+            
+            int qtdeTotal = 0;
+            float mediaTotal = 0;
+            float vendaTotal = 0;
+            float irTotal = 0;
+            float irCalcTotal = 0;
+            float lucroTotal = 0;
 
-            objetoAlvo.DataSource = ds;
-            objetoAlvo.DataMember = ds.Tables[0].TableName;
+            if (ds.Tables[0].Rows.Count > 0)
+            {                
+                qtdeTotal = int.Parse(ds.Tables[0].Compute("Sum(Qtde)", "").ToString());
+                mediaTotal = float.Parse(ds.Tables[0].Compute("Sum(Média)", "").ToString());
+                vendaTotal = float.Parse(ds.Tables[0].Compute("Sum(Venda)", "").ToString());
+                irTotal = float.Parse(ds.Tables[0].Compute("Sum(IR)", "").ToString());
+                irCalcTotal = float.Parse(ds.Tables[0].Compute("Sum(IR_calculado)", "").ToString());
+                lucroTotal = float.Parse(ds.Tables[0].Compute("Sum(Lucro)", "").ToString());
+            }
+
+            EstilosDGView Estilos = new EstilosDGView();
+
+            ds.Tables[0].Rows.Add(null, null, null, "Total: ", qtdeTotal,mediaTotal,vendaTotal,irTotal,irCalcTotal,lucroTotal );
+
+            obj.DataSource = ds;
+            obj.DataMember = ds.Tables[0].TableName;
             //MessageBox.Show(precoTotal.ToString());
-            objetoAlvo.Rows[objetoAlvo.Rows.Count - 1].DefaultCellStyle = Estilos.LinhaFinal;
+            obj.Rows[obj.Rows.Count - 1].DefaultCellStyle = Estilos.LinhaFinal;
+
+
 
 
 

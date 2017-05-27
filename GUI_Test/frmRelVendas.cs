@@ -13,7 +13,7 @@ namespace GUI_Test
 {
     public partial class frmRelVendas : Form
     {
-        ControleCompra ctrCompra = new ControleCompra();
+        ControleVenda ctrVenda = new ControleVenda();
 
         public frmRelVendas()
         {
@@ -36,7 +36,7 @@ namespace GUI_Test
             {
                 try
                 {
-                    ctrCompra.ListarCompras(dtpDataInicial.Text, dtpDataFinal.Text,0,dataGridView);
+                    ctrVenda.ListarVendas(dtpDataInicial.Text, dtpDataFinal.Text,0,dataGridView);
                 }
                 catch
                 { }

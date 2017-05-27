@@ -59,6 +59,7 @@
             this.txtValorDaAcao.Name = "txtValorDaAcao";
             this.txtValorDaAcao.Size = new System.Drawing.Size(150, 21);
             this.txtValorDaAcao.TabIndex = 2;
+            this.txtValorDaAcao.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtValorDaAcao.TextChanged += new System.EventHandler(this.AtualizaPrecoTotal);
             this.txtValorDaAcao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorDaAcao_KeyPress);
             // 
