@@ -59,9 +59,9 @@ namespace Controller
             {
                 msg("Decremeta");
 
-                obj.Quantidade *= -1;
-                obj.ValorAcumulado *= -1;
-                Atualizar(obj);
+                //obj.Quantidade *= -1;
+                //obj.ValorAcumulado *= -1;
+                //Atualizar(obj);
             }
             else
             {

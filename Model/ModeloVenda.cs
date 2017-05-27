@@ -136,18 +136,18 @@ namespace Model
         {
             get
             {
-                //return _valorMedioDeEstoque;
-                if (_valorMedioDeEstoque >= 0)
-                {
-                    return _valorMedioDeEstoque;
-                }
-                else
-                {
-                    return 0;
-                }
+                return _valorMedioDeEstoque;
+                //if (_valorMedioDeEstoque >= 0)
+                //{
+                //    return _valorMedioDeEstoque;
+                //}
+                //else
+                //{
+                //    return 0;
+                //}
             }
 
-        set
+            set
             {
                 _valorMedioDeEstoque = value;
             }

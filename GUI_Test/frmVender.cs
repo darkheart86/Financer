@@ -1,4 +1,4 @@
-﻿ //#define MEDIA_NORMAL
+﻿#define MEDIA_NORMAL
 
 using System;
 using System.Collections.Generic;
@@ -188,18 +188,20 @@ namespace GUI_Test
         private void DefineValorMedioAcao()
         {
             int idDaAcao = ctrVenda.DadosDaVenda.CodigoAcao;
-            #if (MEDIA_NORMAL)
+        
             ctrVenda.DadosDaVenda.ValorMedioDeEstoque = ctrEstoque.ValorMedio(idDaAcao);
-#else
-            if (ctrVenda.DadosDaVenda.Quantidade > 0)
-            {
-                ctrVenda.DadosDaVenda.ValorMedioDeEstoque = ctrEstoque.ValorAcumulado(idDaAcao) / ctrVenda.DadosDaVenda.Quantidade;
-            }
-            else
-            {
-                ctrVenda.DadosDaVenda.ValorMedioDeEstoque = 0;
-            }
-#endif
+//#if (MEDIA_NORMAL)
+//            //...
+//#else
+//            if (ctrVenda.DadosDaVenda.Quantidade > 0)
+//            {
+//                ctrVenda.DadosDaVenda.ValorMedioDeEstoque = ctrEstoque.ValorAcumulado(idDaAcao) / ctrVenda.DadosDaVenda.Quantidade;
+//            }
+//            else
+//            {
+//                ctrVenda.DadosDaVenda.ValorMedioDeEstoque = 0;
+//            }
+//#endif
             ExibeValorMedio();
         }
 
