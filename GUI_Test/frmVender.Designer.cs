@@ -297,12 +297,12 @@
             this.lblBruto.BackColor = System.Drawing.Color.Transparent;
             this.lblBruto.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBruto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblBruto.Location = new System.Drawing.Point(61, 64);
+            this.lblBruto.Location = new System.Drawing.Point(67, 64);
             this.lblBruto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBruto.Name = "lblBruto";
-            this.lblBruto.Size = new System.Drawing.Size(86, 13);
+            this.lblBruto.Size = new System.Drawing.Size(77, 13);
             this.lblBruto.TabIndex = 12;
-            this.lblBruto.Text = "Venda bruta: ";
+            this.lblBruto.Text = "Venda total:";
             this.lblBruto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblLucro
@@ -345,12 +345,12 @@
             this.lblLiquido.BackColor = System.Drawing.Color.Transparent;
             this.lblLiquido.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLiquido.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblLiquido.Location = new System.Drawing.Point(56, 87);
+            this.lblLiquido.Location = new System.Drawing.Point(67, 87);
             this.lblLiquido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLiquido.Name = "lblLiquido";
-            this.lblLiquido.Size = new System.Drawing.Size(93, 13);
+            this.lblLiquido.Size = new System.Drawing.Size(72, 13);
             this.lblLiquido.TabIndex = 0;
-            this.lblLiquido.Text = "Venda liquida: ";
+            this.lblLiquido.Text = "Lucro bruto";
             this.lblLiquido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtLiquido
@@ -378,7 +378,7 @@
             this.lblIRTotal.BackColor = System.Drawing.Color.Transparent;
             this.lblIRTotal.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIRTotal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblIRTotal.Location = new System.Drawing.Point(83, 43);
+            this.lblIRTotal.Location = new System.Drawing.Point(90, 43);
             this.lblIRTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIRTotal.Name = "lblIRTotal";
             this.lblIRTotal.Size = new System.Drawing.Size(54, 13);
@@ -411,7 +411,7 @@
             this.lblPercentualIR.BackColor = System.Drawing.Color.Transparent;
             this.lblPercentualIR.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPercentualIR.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblPercentualIR.Location = new System.Drawing.Point(49, 20);
+            this.lblPercentualIR.Location = new System.Drawing.Point(55, 20);
             this.lblPercentualIR.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPercentualIR.Name = "lblPercentualIR";
             this.lblPercentualIR.Size = new System.Drawing.Size(93, 13);

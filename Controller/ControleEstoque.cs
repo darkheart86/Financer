@@ -110,12 +110,32 @@ namespace Controller
         }
         public float ValorMedio(int codigo)
         {
+            float valorMedio = 0;
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataSet dt = new DataSet();
             if (codigo <= 0) return 0;
-            ModeloEstoque obj = Buscar(codigo);
+           
 
-            if (obj != null)
+            comando.Parameters.Clear();
+            comando.CommandText = "SELECT (SUM(VALOR_COMPRA)/ SUM(QUANTIDADE)) AS MEDIA FROM COMPRAS WHERE ACAO = @codAcao";
+            comando.Parameters.AddWithValue("@codAcao", codigo);
+           
+            //Conecta ao SQL e executa o comando
+            try
             {
-                return obj.ValorMedio;
+                da.SelectCommand = comando;
+                da.Fill(dt);
+                float.TryParse(dt.Tables[0].Rows[0][0].ToString(), out valorMedio);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                conexao.Desconectar();
+            }
+
+            if (valorMedio != 0)
+            {
+                return valorMedio;
             }
             else
             {
@@ -281,7 +301,7 @@ namespace Controller
 
             opEstoque.IdAcao = obj.CodigoAcao;
             opEstoque.Quantidade = obj.Quantidade;
-            opEstoque.ValorAcumulado = obj.ValorVendaLiquida;
+            opEstoque.ValorAcumulado = obj.IVV;
             opEstoque.Inativo = obj.Inativo;
 
             return opEstoque;

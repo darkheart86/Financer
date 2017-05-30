@@ -80,7 +80,7 @@ namespace GUI_Test
             ////ctrVenda.DadosDaVenda.ValorVendaBruta = float.Parse(txtBruto.Text);
             //DefineIR();
             //ExibirIRCalculado();
-            //ExibirVendaLiquida();
+            //ExibirLucroBruto();
 
 
         }
@@ -191,17 +191,17 @@ namespace GUI_Test
         {
             int idDaAcao = ctrVenda.DadosDaVenda.CodigoAcao;
 
-            //ctrVenda.DadosDaVenda.ValorMedioDeEstoque = ctrEstoque.ValorMedio(idDaAcao);
+            ctrVenda.DadosDaVenda.ValorMedioDeEstoque = ctrEstoque.ValorMedio(idDaAcao);
 
 
-            if (ctrVenda.DadosDaVenda.Quantidade > 0)
-            {
-                ctrVenda.DadosDaVenda.ValorMedioDeEstoque = ctrEstoque.ValorAcumulado(idDaAcao) / ctrVenda.DadosDaVenda.Quantidade;
-            }
-            else
-            {
-                ctrVenda.DadosDaVenda.ValorMedioDeEstoque = 0;
-            }
+            //if (ctrVenda.DadosDaVenda.Quantidade > 0)
+            //{
+            //    ctrVenda.DadosDaVenda.ValorMedioDeEstoque = ctrEstoque.ValorAcumulado(idDaAcao) / ctrVenda.DadosDaVenda.Quantidade;
+            //}
+            //else
+            //{
+            //    ctrVenda.DadosDaVenda.ValorMedioDeEstoque = 0;
+            //}
 
             ExibeValorMedio();
         }
@@ -210,7 +210,7 @@ namespace GUI_Test
         {
             ExibeValorMedio();
             ExibirIRCalculado();
-            ExibirVendaLiquida();
+            ExibirLucroBruto();
             ExbirVendaBruta();
             ExibirLucro();
         }
@@ -277,9 +277,9 @@ namespace GUI_Test
         {
             txtIrTotal.Text = ctrVenda.DadosDaVenda.IRCalculado.ToString();
         }
-        private void ExibirVendaLiquida()
+        private void ExibirLucroBruto()
         {
-            txtLiquido.Text = ctrVenda.DadosDaVenda.ValorVendaLiquida.ToString();
+            txtLiquido.Text = ctrVenda.DadosDaVenda.LucroBruto.ToString();
         }
         private void ExbirVendaBruta()
         {

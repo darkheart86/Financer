@@ -75,7 +75,7 @@ namespace Model
         {
             get
             {
-                return ValorVendaBruta - IRCalculado;
+                return ValorVendaBruta - IVV;
             }
 
             //set
@@ -87,7 +87,7 @@ namespace Model
         {
             get
             {
-                return (_lucroBruto - ValorVendaLiquida);
+                return ValorVendaBruta - IVV;
             }
 
             set
@@ -100,12 +100,12 @@ namespace Model
             //Seria ValorVendaLiquida - ValorMedio de estoque
             get
             {
-                return ValorVendaLiquida - IVV;
+                return LucroBruto - IRCalculado ;
             }
 
            
         }
-        public float PorcentagemIR//*
+        public float PorcentagemIR
         {
             get
             {
@@ -121,10 +121,15 @@ namespace Model
         {
            
             get
-            {   // IrCalculado sobre venda bruta
-                return ValorVendaBruta * (PorcentagemIR / 100);
-
-                //IR Calculado sobre lucro
+            {
+                if((LucroBruto * (PorcentagemIR / 100) < 0))
+                {
+                    return 0;
+                }
+                else
+                {
+                    return LucroBruto * (PorcentagemIR / 100);
+                }
             }
 
             //set
