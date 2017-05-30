@@ -45,7 +45,7 @@ namespace GUI_Test
         private void cmbAcao_SelectedIndexChanged(object sender, EventArgs e)
         {
             DefineDadosBasicosDaVenda();
-            ExibeValorMedio();
+            DefineValorDeVendaDaAcao();
             ExibeQteEstoque();
         }
 
@@ -71,6 +71,7 @@ namespace GUI_Test
         {
             if (txtIR.Text == "") txtIR.Text = "0";
             DefineIR();
+            
             ExibirTodos();
         }
              
@@ -117,8 +118,11 @@ namespace GUI_Test
         private void numQuantidade_ValueChanged(object sender, EventArgs e)
         {
             DefineQtde();
-            ExibirTodos();
             DefineValorMedioAcao();
+            ExibirTodos();
+           
+            
+            
 
         }
         private void numQuantidade_Scroll(object sender, ScrollEventArgs e)
@@ -126,7 +130,7 @@ namespace GUI_Test
             DefineQtde();
             DefineValorMedioAcao();
             ExibirTodos();
-          
+            
         }
 
         #endregion
@@ -150,9 +154,7 @@ namespace GUI_Test
             }
 
             ctrVenda.DadosDaVenda.CodigoAcao = idDaAcao;
-           
-            //Gambiarra #Lucro
-            //ctrVenda.DadosDaVenda.LucroBruto = ctrEstoque.ValorMedio(idDaAcao) * ctrEstoque.Quantidade(idDaAcao);
+            DefineValorMedioAcao();
         }
         private void DefineValorDeVendaDaAcao()
         {
@@ -188,20 +190,19 @@ namespace GUI_Test
         private void DefineValorMedioAcao()
         {
             int idDaAcao = ctrVenda.DadosDaVenda.CodigoAcao;
-        
-            ctrVenda.DadosDaVenda.ValorMedioDeEstoque = ctrEstoque.ValorMedio(idDaAcao);
-//#if (MEDIA_NORMAL)
-//            //...
-//#else
-//            if (ctrVenda.DadosDaVenda.Quantidade > 0)
-//            {
-//                ctrVenda.DadosDaVenda.ValorMedioDeEstoque = ctrEstoque.ValorAcumulado(idDaAcao) / ctrVenda.DadosDaVenda.Quantidade;
-//            }
-//            else
-//            {
-//                ctrVenda.DadosDaVenda.ValorMedioDeEstoque = 0;
-//            }
-//#endif
+
+            //ctrVenda.DadosDaVenda.ValorMedioDeEstoque = ctrEstoque.ValorMedio(idDaAcao);
+
+
+            if (ctrVenda.DadosDaVenda.Quantidade > 0)
+            {
+                ctrVenda.DadosDaVenda.ValorMedioDeEstoque = ctrEstoque.ValorAcumulado(idDaAcao) / ctrVenda.DadosDaVenda.Quantidade;
+            }
+            else
+            {
+                ctrVenda.DadosDaVenda.ValorMedioDeEstoque = 0;
+            }
+
             ExibeValorMedio();
         }
 
@@ -410,9 +411,13 @@ namespace GUI_Test
 
 
 
+
         #endregion
 
-      
+        private void grpVendas_MouseHover(object sender, EventArgs e)
+        {
+            ShowModelo();
+        }
     }
 
 }

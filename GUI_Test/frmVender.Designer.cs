@@ -254,6 +254,7 @@
             this.grpVendas.TabIndex = 0;
             this.grpVendas.TabStop = false;
             this.grpVendas.Text = "Vender ação:";
+            this.grpVendas.DoubleClick += new System.EventHandler(this.grpVendas_MouseHover);
             // 
             // gprVenda2
             // 
