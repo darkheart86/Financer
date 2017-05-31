@@ -100,7 +100,7 @@ namespace Controller
             {
 
                 //strCmd= "SELECT * FROM COMPRAS WHERE DATA_COMPRA > @dataInicial AND DATA_COMPRA < @dataFinal";
-                strCmd = "SELECT A.ID_VENDA AS 'ID Venda', A.DATA_VENDA as 'Data',A.ACAO as 'Ação' ,B.EMPRESA as 'Empresa',A.QUANTIDADE as 'Qtde', A.VALOR_MEDIO_ACAO as 'Média'," +
+                strCmd = "SELECT A.ID_VENDA AS 'ID Venda', A.DATA_VENDA as 'Data',A.ACAO as 'Ação' ,B.EMPRESA as 'Empresa',A.QUANTIDADE as 'Qtde'," +
                 "A.VALOR_VENDA as 'Venda', A.IR as 'IR', A.IR_CALCULADO as 'IR_calculado', A.LUCRO as 'Lucro'" +
                 "FROM VENDAS A JOIN ACOES B ON A.ACAO = B.ID_ACAO where DATA_VENDA >= @datainicial and DATA_VENDA <= @datafinal";
 

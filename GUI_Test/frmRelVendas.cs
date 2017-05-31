@@ -28,6 +28,7 @@ namespace GUI_Test
         private void frmConsultaCompras_Load(object sender, EventArgs e)
         {
 
+            dtpDataFinal.Value = DateTime.Now;
         }
 
         private void cmdPesquisar_Click(object sender, EventArgs e)

@@ -61,7 +61,7 @@
             this.dtpDataFinal.Name = "dtpDataFinal";
             this.dtpDataFinal.Size = new System.Drawing.Size(106, 21);
             this.dtpDataFinal.TabIndex = 2;
-            this.dtpDataFinal.Value = new System.DateTime(2017, 5, 16, 0, 38, 8, 0);
+            this.dtpDataFinal.Value = new System.DateTime(2017, 5, 30, 21, 42, 59, 0);
             // 
             // lblDataInicial
             // 
