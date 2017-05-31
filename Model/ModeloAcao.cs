@@ -17,7 +17,7 @@ namespace Model
         public ModeloAcao()
         {
             this._codigoAcao = 0;
-            this._nomeEmpresa = "";
+            this._nomeEmpresa = null;
             this._inativo = false;
 
         }
@@ -25,6 +25,7 @@ namespace Model
         {
             this.CodigoAcao = CodigoAcao;
             this.NomeEmpresa = NomeEmpresa;
+            this.Inativo = false;
         }
         public ModeloAcao(int CodigoAcao, string NomeEmpresa, bool Inativo)
         {

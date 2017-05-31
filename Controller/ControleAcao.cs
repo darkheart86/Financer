@@ -130,6 +130,7 @@ namespace Controller
         {
 
             ModeloAcao modelo = new ModeloAcao();
+            modelo.Clear();
             comando.Connection = conexao.objConexao();
             comando.Parameters.Clear();
             comando.CommandText = "select ID_ACAO, EMPRESA, INATIVO from ACOES where ID_ACAO = @cod_acao;";
@@ -172,7 +173,8 @@ namespace Controller
             else
             {
                 conexao.Desconectar();
-                return null;
+                modelo.Clear();
+                return modelo;
             }
         }
 
@@ -192,6 +194,7 @@ namespace Controller
 
             // Variavel interna temporaria que vou usar na validacao dos parametros
             ModeloAcao _acao = new ModeloAcao();
+            
             //bool verifica_redundancia = true;
 
 
@@ -199,19 +202,19 @@ namespace Controller
             comando.Parameters.Clear();
             if (acao.NomeEmpresa != "")
             {
-                //Valida o parametro verifica_redundancia 
-                if (verifica_redundancia)
+                //Se o comando BuscaAcao nao encontrar a empresa ele retorna null, senão retorna com a Acao (ModeloAcao)
+                if (acao.CodigoAcao == BuscarAcao(acao.NomeEmpresa).CodigoAcao)
                 {
-                    //Se o comando BuscaAcao nao encontrar a empresa ele retorna null, senão retorna com a Acao (ModeloAcao)
-                    _acao = this.BuscarAcao(acao.NomeEmpresa);
+                    _acao.CodigoAcao = 0;
                 }
                 else
                 {
-                    _acao = null;
+
+                    _acao = this.BuscarAcao(acao.NomeEmpresa);
                 }
 
                 //Se a acao for nula por nao ter encontrado na BuscaAcao ou pelo parametro verifica_redundancia
-                if (_acao == null)
+                if (_acao.CodigoAcao == 0)
                 {
                     //Define o comando e os parametros do comando a ser enviado ao SQL
                     comando.Parameters.Clear();
